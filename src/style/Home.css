@@ -7,10 +7,30 @@
 }
 .ant-card {
   overflow: hidden;
+  font-size: 13px;
 }
 
 .card-tool {
     position: absolute;
     right: 24px;
     top: 24px;
+}
+
+.list-group .list-group-item {
+    position: relative;
+    display: block;
+    margin-bottom: -1px;
+    padding: 12px 16px;
+    background: transparent;
+    border: 1px solid #ddd;
+    border-color: rgba(120, 130, 140, 0.065);
+    border-width: 1px 0;
+}
+
+.list-group .list-group-item:first-child {
+    border-top-width: 0;
+}
+
+.list-group .list-group-item:last-child {
+    border-bottom-width: 0;
 }

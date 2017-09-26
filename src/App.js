@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb, Badge, Icon, Avatar } from 'antd';
 import Home from './containers/Home';
+import Tables from './containers/Tables';
 import './App.css';
 
 const { SubMenu } = Menu;
@@ -66,10 +67,18 @@ class App extends Component {
           >
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
               <Menu.Item key="1">
-                <Icon type="pie-chart" />
-                <span>面板</span>
+                <Link to="/">
+                  <Icon type="pie-chart" />
+                  <span>面板</span>
+                </Link>
               </Menu.Item>
               <Menu.Item key="2">
+                <Link to="/tables">
+                  <Icon type="switcher" />
+                  <span>表格</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="3">
                 <Icon type="desktop" />
                 <span>设备</span>
               </Menu.Item>
@@ -77,15 +86,15 @@ class App extends Component {
                 key="sub1"
                 title={<span><Icon type="user" /><span>个人中心</span></span>}
               >
-                <Menu.Item key="3">Tom</Menu.Item>
-                <Menu.Item key="4">Bill</Menu.Item>
-                <Menu.Item key="5">Alex</Menu.Item>
+                <Menu.Item key="4">Tom</Menu.Item>
+                <Menu.Item key="5">Bill</Menu.Item>
+                <Menu.Item key="6">Alex</Menu.Item>
               </SubMenu>
               <SubMenu
                 key="sub2"
                 title={<span><Icon type="team" /><span>组织关系</span></span>}
               >
-                <Menu.Item key="6">Team 1</Menu.Item>
+                <Menu.Item key="7">Team 1</Menu.Item>
                 <Menu.Item key="8">Team 2</Menu.Item>
               </SubMenu>
               <Menu.Item key="9">
@@ -102,6 +111,7 @@ class App extends Component {
             </Breadcrumb>
             <Content style={{ margin: 0, minHeight: 280 }}>
               <Route exact path="/" component={Home}/>
+              <Route path="/tables" component={Tables}/>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
               Ant Design ©2016 Created by Ant UED
