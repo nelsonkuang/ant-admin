@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { Layout, Menu, Breadcrumb, Badge, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb, Badge, Icon, Avatar } from 'antd';
 import Home from './containers/Home';
 import './App.css';
 
@@ -42,7 +42,7 @@ class App extends Component {
                         <Icon type="notification" />
                     </Badge>
                 </Menu.Item>
-                <SubMenu title={<span className="avatar"><img src="http://dummyimage.com/100/FF8604/fff" alt="头像" /><i className="on bottom b-white" /></span>}>
+                <SubMenu title={<Badge dot><Avatar shape="square" src="http://dummyimage.com/100/FF8604/fff" icon="user" /></Badge>}>
                     <Menu.ItemGroup title="用户中心">
                         <Menu.Item key="setting:1">你好 - userName</Menu.Item>
                         <Menu.Item key="setting:2">个人信息</Menu.Item>
@@ -94,13 +94,13 @@ class App extends Component {
               </Menu.Item>
             </Menu>
           </Sider>
-          <Layout style={{ padding: '0 24px 24px' }}>
+          <Layout style={{ padding: '0 10px 10px' }}>
             <Breadcrumb style={{ margin: '12px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
+              <Breadcrumb.Item>首页</Breadcrumb.Item>
+              <Breadcrumb.Item>XXXX</Breadcrumb.Item>
+              <Breadcrumb.Item>XXXX</Breadcrumb.Item>
             </Breadcrumb>
-            <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
+            <Content style={{ margin: 0, minHeight: 280 }}>
               <Route exact path="/" component={Home}/>
             </Content>
             <Footer style={{ textAlign: 'center' }}>

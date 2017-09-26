@@ -1,0 +1,16 @@
+.gutter-box {
+    padding: 5px 0;
+}
+
+.no-padding .ant-card-body {
+    padding: 0 !important;
+}
+.ant-card {
+  overflow: hidden;
+}
+
+.card-tool {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+}

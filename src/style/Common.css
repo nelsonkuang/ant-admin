@@ -1,0 +1,156 @@
+small {
+  opacity: .6;
+}
+.text-muted{
+  opacity: .6;
+}
+.clear{
+  display: block;
+  overflow: hidden;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.y-center{
+  display: flex;
+  align-items: center;
+}
+.block{
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.none{
+  display: none;
+}
+.b-white {
+  border-color: #ffffff;
+}
+.w-full {
+  width: 100%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-v {
+  height: 100vh;
+}
+
+.h-v-5 {
+  height: 50vh;
+}
+
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.w-40 {
+  width:  40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+}
+
+.text{
+  font-size: 1rem;
+}
+.text-2x{
+  font-size: 2rem;
+}
+.text-3x{
+  font-size: 3rem;
+}
+.text-4x{
+  font-size: 4rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-danger,
+.text-danger-hover a:hover {
+  color: #f44455 !important;
+}
+.text-dark,
+.text-dark-hover a:hover {
+  color: #2e3e4e !important;
+}
+.text-info,
+.text-info-hover a:hover {
+  color: #6887ff !important;
+}
+.text-success,
+.text-success-hover a:hover {
+  color: #6cc788 !important;
+}
+.text-blue,
+.text-blue-hover a:hover {
+  color: #2196f3 !important; }
+
+.pb-s { padding-bottom: 0.5rem !important;  }
+.pb-m { padding-bottom: 1rem !important;  }
+.pb-l { padding-bottom: 2rem !important;  }
+.pa-s { padding: 0.5rem !important; }
+.pa-m { padding: 1rem !important; }
+.pa-l { padding: 2rem !important; }
+
+.mr-s { margin-right: 0.5rem !important;  }
+.mr-m { margin-right: 1rem !important;  }
+.mr-l { margin-right: 2rem !important;  }
+.mb-s { margin-bottom: 0.5rem !important;  }
+.mb-m { margin-bottom: 1rem !important;  }
+.mb-l { margin-bottom: 2rem !important;  }
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+#root .logo {
+  width: 120px;
+  height: 31px;
+  background: #333;
+  border-radius: 6px;
+  margin: 16px 28px 16px 0;
+  float: left;
+  line-height: 31px;
+  text-align: center;
+  color: #fff;
+}
+
+.ant-menu-submenu-horizontal > .ant-menu {
+    width: 120px;
+    left: -40px;
+}

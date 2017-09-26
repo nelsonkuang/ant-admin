@@ -1,11 +1,7 @@
-/**
- * Created by hao.cheng on 2017/5/3.
- */
 import React from 'react';
 import { Row, Col, Card, Timeline, Icon } from 'antd';
-//import BreadcrumbCustom from '../BreadcrumbCustom';
-//import EchartsViews from './EchartsViews';
-//import EchartsProjects from './EchartsProjects';
+import EchartsViews from '../components/charts/EchartsViews';
+import EchartsProjects from '../components/charts/EchartsProjects';
 
 
 class Dashboard extends React.Component {
@@ -13,17 +9,15 @@ class Dashboard extends React.Component {
         const b1 = 'http://dummyimage.com/100/FF8604/fff'
         return (
             <div className="gutter-example button-demo">
-                {/*<BreadcrumbCustom />*/}
-
                 <Row gutter={10}>
                     <Col className="gutter-row" md={4}>
                         <div className="gutter-box">
                             <Card bordered={false}>
-                                <div className="clear y-center">
+                                <div className="clearfix y-center">
                                     <div className="pull-left mr-m">
                                         <Icon type="heart" className="text-2x text-danger" />
                                     </div>
-                                    <div className="clear">
+                                    <div className="clearfix">
                                         <div className="text-muted">收藏</div>
                                         <h2>301</h2>
                                     </div>
@@ -32,11 +26,11 @@ class Dashboard extends React.Component {
                         </div>
                         <div className="gutter-box">
                             <Card bordered={false}>
-                                <div className="clear y-center">
+                                <div className="clearfix y-center">
                                     <div className="pull-left mr-m">
                                         <Icon type="cloud" className="text-2x" />
                                     </div>
-                                    <div className="clear">
+                                    <div className="clearfix">
                                         <div className="text-muted">云数据</div>
                                         <h2>30122</h2>
                                     </div>
@@ -47,11 +41,11 @@ class Dashboard extends React.Component {
                     <Col className="gutter-row" md={4}>
                         <div className="gutter-box">
                             <Card bordered={false}>
-                                <div className="clear y-center">
+                                <div className="clearfix y-center">
                                     <div className="pull-left mr-m">
                                         <Icon type="camera" className="text-2x text-info" />
                                     </div>
-                                    <div className="clear">
+                                    <div className="clearfix">
                                         <div className="text-muted">照片</div>
                                         <h2>802</h2>
                                     </div>
@@ -60,11 +54,11 @@ class Dashboard extends React.Component {
                         </div>
                         <div className="gutter-box">
                             <Card bordered={false}>
-                                <div className="clear y-center">
+                                <div className="clearfix y-center">
                                     <div className="pull-left mr-m">
                                         <Icon type="mail" className="text-2x text-success" />
                                     </div>
-                                    <div className="clear">
+                                    <div className="clearfix">
                                         <div className="text-muted">邮件</div>
                                         <h2>102</h2>
                                     </div>
@@ -75,7 +69,7 @@ class Dashboard extends React.Component {
                     <Col className="gutter-row" md={16}>
                         <div className="gutter-box">
                             <Card bordered={false} className={'no-padding'}>
-                                {/*<EchartsProjects />*/}
+                                {<EchartsProjects />}
                             </Card>
                         </div>
                     </Col>
@@ -116,7 +110,7 @@ class Dashboard extends React.Component {
                                         <a href="" className="pull-left w-40 mr-m">
                                             <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
-                                        <div className="clear">
+                                        <div className="clearfix">
                                             <a href="" className="block">鸣人</a>
                                             <span className="text-muted">终于当上火影了！</span>
                                         </div>
@@ -125,7 +119,7 @@ class Dashboard extends React.Component {
                                         <a href="" className="pull-left w-40 mr-m">
                                             <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
-                                        <div className="clear">
+                                        <div className="clearfix">
                                             <a href="" className="block">佐助</a>
                                             <span className="text-muted">吊车尾~~</span>
                                         </div>
@@ -134,7 +128,7 @@ class Dashboard extends React.Component {
                                         <a href="" className="pull-left w-40 mr-m">
                                             <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
-                                        <div className="clear">
+                                        <div className="clearfix">
                                             <a href="" className="block">小樱</a>
                                             <span className="text-muted">佐助，你好帅！</span>
                                         </div>
@@ -143,7 +137,7 @@ class Dashboard extends React.Component {
                                         <a href="" className="pull-left w-40 mr-m">
                                             <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
-                                        <div className="clear">
+                                        <div className="clearfix">
                                             <a href="" className="block">雏田</a>
                                             <span className="text-muted">鸣人君。。。那个。。。我。。喜欢你..</span>
                                         </div>
@@ -160,7 +154,7 @@ class Dashboard extends React.Component {
                                     <small>最近7天用户访问量</small>
                                 </div>
                                 <a className="card-tool"><Icon type="sync" /></a>
-                                {/*<EchartsViews />*/}
+                                {<EchartsViews />}
                             </Card>
                         </div>
                     </Col>
