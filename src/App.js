@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb, Badge, Icon, Avatar } from 'antd';
 import Home from './containers/Home';
 import Tables from './containers/Tables';
@@ -110,11 +110,14 @@ class App extends Component {
               <Breadcrumb.Item>XXXX</Breadcrumb.Item>
             </Breadcrumb>
             <Content style={{ margin: 0, minHeight: 280 }}>
-              <Route exact path="/" component={Home}/>
-              <Route path="/tables" component={Tables}/>
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route path='/tables' component={Tables} />
+                <Redirect path="*" to="/" />
+              </Switch>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
-              Ant Design ©2016 Created by Ant UED
+              Mixed by Nelson Kuang @2017, currently under developing...
             </Footer>
           </Layout>
         </Layout>
