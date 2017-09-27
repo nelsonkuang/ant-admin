@@ -1,5 +1,6 @@
 import React from 'react'
 import { Layout, Menu, Badge, Icon, Avatar } from 'antd';
+import { Link } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
@@ -14,9 +15,8 @@ const RootHeader = () => (
         defaultSelectedKeys={['2']}
         style={{ lineHeight: '64px' }}
       >
-        <Menu.Item key="left-menu-1">首页</Menu.Item>
-        <Menu.Item key="left-menu-2">数据</Menu.Item>
-        <Menu.Item key="left-menu-3">统计</Menu.Item>
+        <Menu.Item key="left-menu-2">开发中一</Menu.Item>
+        <Menu.Item key="left-menu-3">开发中二</Menu.Item>
       </Menu>
     </div>
     <div className="right-menu" style={{float: 'right', width: '30%'}}>

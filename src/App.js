@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { Layout } from 'antd';
 import Home from './containers/Home';
 import Tables from './containers/Tables';
+import Profile from './containers/Profile';
 import RootHeader from './components/layout/RootHeader';
 import RootBreadcrumb from './components/layout/RootBreadcrumb';
 import SiderMenus from './components/layout/SiderMenus';
@@ -37,6 +38,7 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={Home} />
                 <Route path='/tables' component={Tables} />
+                <Route path='/profile' component={Profile} />
                 <Redirect path="*" to="/" />
               </Switch>
             </Content>

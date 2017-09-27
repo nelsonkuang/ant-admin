@@ -10,7 +10,8 @@ const RootBreadcrumb = ({match}) => {
   let temArr = [''];
   const home = '首页'
   const names = {
-    tables: '表格'
+    tables: '表格',
+    profile: '个人信息'
   };
   return (
     <Breadcrumb style={{ margin: '12px 0' }}>
