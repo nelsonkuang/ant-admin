@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const { SubMenu } = Menu;
 
 const SiderMenus = ({match}) => (
-  <div>
+  <div style={{paddingBottom:'80px'}}>
     <Menu theme="dark" defaultSelectedKeys={[match.url]} selectedKeys={[match.url]} mode="inline">
       <Menu.Item key="/">
         <Link to="/">
@@ -41,7 +41,19 @@ const SiderMenus = ({match}) => (
       </SubMenu>
       <Menu.Item key="9">
         <Icon type="file" />
-        <span>文件 开发中...</span>
+        <span>开发中...</span>
+      </Menu.Item>
+      <Menu.Item key="10">
+        <Icon type="cloud" />
+        <span>开发中...</span>
+      </Menu.Item>
+      <Menu.Item key="11">
+        <Icon type="calendar" />
+        <span>开发中...</span>
+      </Menu.Item>
+      <Menu.Item key="12">
+        <Icon type="gift" />
+        <span>开发中...</span>
       </Menu.Item>
     </Menu>
   </div>

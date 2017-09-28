@@ -1,12 +1,11 @@
 import React from 'react'
 import { Layout, Menu, Badge, Icon, Avatar } from 'antd';
-import { Link } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
 
 const RootHeader = () => (
-  <Header className="header clearfix">
+  <Header className="header clearfix fixed">
     <div className="logo" >LOGO</div>
     <div className="left-menu" style={{float: 'left', width: '50%'}}>
       <Menu

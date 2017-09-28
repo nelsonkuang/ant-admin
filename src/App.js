@@ -22,17 +22,18 @@ class App extends Component {
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <RootHeader />
-        <Layout>
+        <Layout style={{paddingTop:'64px'}}>
           <Sider 
             width={200} 
             style={{ background: '#333' }}           
             collapsible
             collapsed={this.state.collapsed}
             onCollapse={this.onCollapse}
+            className="fixed"
           >
             <Route path="*" component={SiderMenus}/>
           </Sider>
-          <Layout style={{ padding: '0 10px 10px' }}>
+          <Layout className={this.state.collapsed ? 'content-normal' : 'content-max'} >
             <Route path="*" component={RootBreadcrumb}/>
             <Content style={{ margin: 0, minHeight: 280 }}>
               <Switch>
