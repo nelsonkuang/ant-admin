@@ -189,3 +189,19 @@ small {
   height: 100%;
   overflow-y:auto; 
 }
+
+.ant-layout-sider-children::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: transparent;
+}
+.ant-layout-sider-children::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+    border-radius: 2px;
+    background-color: #29065b;
+}
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,.3);
+    background-color: #ccc;
+}
