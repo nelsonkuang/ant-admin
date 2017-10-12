@@ -15,9 +15,11 @@ class D3SimpleBarChart extends React.Component {
         let x = d3.scaleBand().rangeRound([0, width]).padding(0.1).domain(data.map(function (d) { return d.letter; })); // 设置x轴
         let y = d3.scaleLinear().rangeRound([height, 0]).domain([0, d3.max(data, function (d) { return d.frequency; })]); // 设置y轴
 
-        const barWidth = (width / data.length) * 0.9;
-        const maxFrequency = d3.max(data, function (d) { return d.frequency; });
-        const colors = ['#ccc', '#ddd'];
+        const barWidth = (width / data.length) * 0.9; // 用于绘制每条柱
+        const maxFrequency = Math.floor(d3.max(data, function (d) { return d.frequency; })* 100) + 1; // 用于生成背景柱
+        const stepMaxFrequency = Math.floor(maxFrequency / 10); // 用于生成背景柱
+        const scaleMaxFrequency = Math.floor(maxFrequency / stepMaxFrequency); // 用于生成背景柱
+        const colors = ['#ccc', '#ddd']; // 用于生成背景柱
 
         let tip = d3Tip() // 设置tip
             .attr('class', 'd3-tip')
@@ -48,23 +50,16 @@ class D3SimpleBarChart extends React.Component {
         g.append("g")// 设置背景柱
             .attr("class", "bar--bg-bar")
             .selectAll('rect')
-            .data((function (item) {
-                var n = Math.floor(item * 100) + 1,
-                    arr = [];
-                for (var i = 0; i < n; i++) {
-                    arr.push(i);
-                }
-                return arr;
-            })(maxFrequency))
+            .data(d3.range(scaleMaxFrequency))
             .enter()
             .append('rect')
             .attr('stroke', 'none')
             .attr('stroke-width', 0)
             .attr('fill', function (d, i) { return colors[i % 2]; })
-            .attr('x', 0)
+            .attr('x', 1)
             .attr('width', width)
-            .attr('height', Math.round(height / (y.domain()[1] * 100)))
-            .attr('y', function (d, i) { return y((d + 1) / 100); });
+            .attr('height', Math.round(height * stepMaxFrequency / (y.domain()[1] * 100)))
+            .attr('y', function (d, i) { return y((d + 1) * stepMaxFrequency / 100); });
 
         g.selectAll(".bar")// 画柱图
             .data(data)

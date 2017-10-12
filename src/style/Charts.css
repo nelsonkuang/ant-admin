@@ -28,3 +28,7 @@
     top: 100%;
     left: 0;
 }
+
+.bar-chart--simple .bar:hover{
+    fill:purple;
+}

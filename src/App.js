@@ -5,6 +5,7 @@ import Home from './containers/Home';
 import Tables from './containers/Tables';
 import Profile from './containers/Profile';
 import SimpleBarChart from './containers/SimpleBarChart';
+import SimpleAreaChart from './containers/SimpleAreaChart';
 import RootHeader from './components/layout/RootHeader';
 import RootBreadcrumb from './components/layout/RootBreadcrumb';
 import SiderMenus from './components/layout/SiderMenus';
@@ -42,6 +43,7 @@ class App extends Component {
                 <Route path='/tables' component={Tables} />
                 <Route path='/profile' component={Profile} />
                 <Route path='/simple-bar-chart' component={SimpleBarChart} />
+                <Route path='/simple-area-chart' component={SimpleAreaChart} />
                 <Redirect path="*" to="/" />
               </Switch>
             </Content>

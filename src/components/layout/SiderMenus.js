@@ -31,6 +31,7 @@ const SiderMenus = ({match}) => (
         title={<span><Icon type="area-chart" /><span>D3.js图库</span></span>}
       >
         <Menu.Item key="/simple-bar-chart"><Link to="/simple-bar-chart">D3 简单柱状图</Link></Menu.Item>
+        <Menu.Item key="/simple-area-chart"><Link to="/simple-area-chart">D3 简单面积图</Link></Menu.Item>
       </SubMenu>
     </Menu>
   </div>

@@ -34,7 +34,7 @@ class Tables extends React.Component {
           title: '姓名',
           dataIndex: 'name',
           key: 'name',
-          render: text => <a href="#">{text}</a>,
+          render: text => <a>{text}</a>,
         }, {
           title: '年龄',
           dataIndex: 'age',
@@ -48,11 +48,11 @@ class Tables extends React.Component {
           key: 'action',
           render: (text, record) => (
             <span>
-              <a href="#"><Icon type="edit" /></a>
+              <a><Icon type="edit" /></a>
               <span className="ant-divider" />
-              <a href="#"><Icon type="delete" /></a>
+              <a><Icon type="delete" /></a>
               <span className="ant-divider" />
-              <a href="#" className="ant-dropdown-link">
+              <a className="ant-dropdown-link">
                 <Icon type="ellipsis" />
               </a>
             </span>
