@@ -150,7 +150,7 @@ class Dashboard extends React.Component {
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <div className="pb-m">
-                                    <h3>访问量统计</h3>
+                                    <h3>访问量统计 by Echarts</h3>
                                     <small>最近7天用户访问量</small>
                                 </div>
                                 <a className="card-tool"><Icon type="sync" /></a>
