@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "antd": "^2.13.3",
+    "d3": "^4.11.0",
+    "d3-tip": "^0.7.1",
     "echarts": "^3.7.1",
     "echarts-for-react": "^2.0.0",
     "react": "^15.6.1",

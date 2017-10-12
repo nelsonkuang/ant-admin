@@ -11,7 +11,8 @@ const RootBreadcrumb = ({match}) => {
   const home = '首页'
   const names = {
     tables: '表格',
-    profile: '个人信息'
+    profile: '个人信息',
+    'simple-bar-chart': 'D3 简单柱状图'
   };
   return (
     <Breadcrumb style={{ margin: '12px 0' }}>

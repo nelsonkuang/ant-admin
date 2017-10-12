@@ -4,6 +4,7 @@ import { Layout } from 'antd';
 import Home from './containers/Home';
 import Tables from './containers/Tables';
 import Profile from './containers/Profile';
+import SimpleBarChart from './containers/SimpleBarChart';
 import RootHeader from './components/layout/RootHeader';
 import RootBreadcrumb from './components/layout/RootBreadcrumb';
 import SiderMenus from './components/layout/SiderMenus';
@@ -40,6 +41,7 @@ class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route path='/tables' component={Tables} />
                 <Route path='/profile' component={Profile} />
+                <Route path='/simple-bar-chart' component={SimpleBarChart} />
                 <Redirect path="*" to="/" />
               </Switch>
             </Content>

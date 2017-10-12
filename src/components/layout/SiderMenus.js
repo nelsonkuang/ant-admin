@@ -7,10 +7,10 @@ const { SubMenu } = Menu;
 
 const SiderMenus = ({match}) => (
   <div style={{paddingBottom:'80px'}}>
-    <Menu theme="dark" defaultSelectedKeys={[match.url]} selectedKeys={[match.url]} mode="inline">
+    <Menu theme="dark" defaultSelectedKeys={[match.url]} selectedKeys={[match.url]} defaultOpenKeys={['sub2']} mode="inline">
       <Menu.Item key="/">
         <Link to="/">
-          <Icon type="pie-chart" />
+          <Icon type="home" />
           <span>首页</span>
         </Link>
       </Menu.Item>
@@ -25,36 +25,13 @@ const SiderMenus = ({match}) => (
         title={<span><Icon type="user" /><span>个人中心</span></span>}
       >
         <Menu.Item key="/profile"><Link to="/profile">个人信息</Link></Menu.Item>
-        <Menu.Item key="5">开发中二...</Menu.Item>
-        <Menu.Item key="6">开发中三...</Menu.Item>
       </SubMenu>
-      <Menu.Item key="3">
-        <Icon type="desktop" />
-        <span>设备 开发中...</span>
-      </Menu.Item>
       <SubMenu
         key="sub2"
-        title={<span><Icon type="team" /><span>组织关系</span></span>}
+        title={<span><Icon type="area-chart" /><span>D3.js图库</span></span>}
       >
-        <Menu.Item key="7">开发中一...</Menu.Item>
-        <Menu.Item key="8">开发中二...</Menu.Item>
+        <Menu.Item key="/simple-bar-chart"><Link to="/simple-bar-chart">D3 简单柱状图</Link></Menu.Item>
       </SubMenu>
-      <Menu.Item key="9">
-        <Icon type="file" />
-        <span>开发中...</span>
-      </Menu.Item>
-      <Menu.Item key="10">
-        <Icon type="cloud" />
-        <span>开发中...</span>
-      </Menu.Item>
-      <Menu.Item key="11">
-        <Icon type="calendar" />
-        <span>开发中...</span>
-      </Menu.Item>
-      <Menu.Item key="12">
-        <Icon type="gift" />
-        <span>开发中...</span>
-      </Menu.Item>
     </Menu>
   </div>
 )
