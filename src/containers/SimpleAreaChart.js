@@ -43,7 +43,7 @@ class SimpleAreaChart extends React.Component {
               { day: "2017-12", quantity: 4585 }
             ];     
         return (
-            <div className="gutter-example simple-bar-chart-demo">
+            <div className="gutter-example simple-area-chart-demo">
                 <Row gutter={10}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
