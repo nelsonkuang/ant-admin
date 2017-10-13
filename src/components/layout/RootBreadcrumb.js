@@ -15,7 +15,8 @@ const RootBreadcrumb = ({match}) => {
     'simple-bar-chart': 'D3 简单柱状图',
     'simple-area-chart': 'D3 简单面积图',  
     'simple-pie-chart': 'D3 简单饼图、圆环图',    
-    'simple-points-chart': 'D3 简单散点图',      
+    'simple-points-chart': 'D3 简单散点图',
+    'grouped-points-chart': 'D3 简单散点图',     
   };
   return (
     <Breadcrumb style={{ margin: '12px 0' }}>

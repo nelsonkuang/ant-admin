@@ -9,6 +9,7 @@ import SimpleAreaChart from './containers/SimpleAreaChart';
 import SimplePieChart from './containers/SimplePieChart';
 import SimpleLineChart from './containers/SimpleLineChart';
 import SimplePointsChart from './containers/SimplePointsChart';
+import GroupedBarChart from './containers/GroupedBarChart';
 import RootHeader from './components/layout/RootHeader';
 import RootBreadcrumb from './components/layout/RootBreadcrumb';
 import SiderMenus from './components/layout/SiderMenus';
@@ -50,11 +51,12 @@ class App extends Component {
                 <Route path='/simple-pie-chart' component={SimplePieChart} />
                 <Route path='/simple-line-chart' component={SimpleLineChart} />
                 <Route path='/simple-points-chart' component={SimplePointsChart} />
+                <Route path='/grouped-points-chart' component={GroupedBarChart} />
                 <Redirect path="*" to="/" />
               </Switch>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
-              Mixed by Nelson Kuang @2017, currently under developing...
+              <a href="https://github.com/nelsonkuang/ant-admin">Fork me on Github</a>, Mixed by Nelson Kuang @2017, currently under developing...
             </Footer>
           </Layout>
         </Layout>
