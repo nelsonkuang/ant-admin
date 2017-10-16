@@ -35,6 +35,19 @@ class D3SimpleLineChart extends React.Component {
 
         let z = d3.scaleOrdinal(d3.schemeCategory10);// 通用线条的颜色
 
+        let line = d3.line()
+                .x(function (d) { return x(d.date); })
+                .y(function (d) { return y(d.value); });
+
+        chart.append("defs").append("clipPath") // 添加长方形方块，遮罩作用
+            .attr("id", "clip")
+          　.append("rect")
+            .attr("height", height)
+            .attr("width", 0) // 用遮罩实现线动画
+            .transition()
+            .duration(1000)           
+            .attr("width", width);
+
         g.append("g")// 生成x轴
             .attr("class", "axis axis--x")
             .attr("transform", "translate(0," + height + ")")
@@ -42,16 +55,15 @@ class D3SimpleLineChart extends React.Component {
 
         let serie = g.selectAll(".serie") // 生成两线条
             .data(series)
-            .enter().append("g")
+            .enter().append("g")  
             .attr("class", "serie");
 
         serie.append("path") // 绘画线条
+            .attr('clip-path', 'url(#clip)')         
             .attr("class", "line")
             .style("stroke", function (d) { return z(d[0].key); })
             .attr('fill', 'none')
-            .attr("d", d3.line()
-                .x(function (d) { return x(d.date); })
-                .y(function (d) { return y(d.value); }));
+            .attr("d", line);
 
         let label = serie.selectAll(".label") // 生成文字包层
             .data(function (d) { return d; })

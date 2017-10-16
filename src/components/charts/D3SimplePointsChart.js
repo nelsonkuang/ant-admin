@@ -67,6 +67,10 @@ class D3SimplePointsChart extends React.Component {
             .attr('cy', function (d) {
                 return y(d[1]);
             })
+            .attr('r', 0)
+            .transition()
+            .duration(750)
+            .delay(function (d, i) { return i * 10; })      
             .attr('r', 10);
         chart.append('g')// 输出标题
             .attr('class', 'bar--title')

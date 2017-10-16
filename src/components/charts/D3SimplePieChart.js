@@ -47,9 +47,22 @@ class D3SimplePieChart extends React.Component {
             .data(pie(data))
             .enter().append("path")
             .attr("class", "arc")
-            .attr("d", arc)
             .attr('stroke', function (d) { return colors(d.data.age); })
-            .style("fill", function (d) { return colors(d.data.age); });
+            .style("fill", function (d) { return colors(d.data.age); })
+            .each(function(d) { // 储存当前起始与终点的角度、并设为相等
+                let tem = {...d, endAngle: d.startAngle};
+                this._currentData = tem; 
+            })
+            .transition()
+            .duration(100)
+            .delay(function (d, i) { return i * 100; })
+            .attrTween("d", function(next) { // 动态设置d属性、生成动画
+              var i = d3.interpolate(this._currentData, next);
+              this._currentData = i(0);　// 重设当前角度
+              return function(t) {
+                return arc(i(t));
+              };
+            });
 
 
         const arcs = pie(data); // 构造圆弧

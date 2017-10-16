@@ -70,6 +70,11 @@ class D3StackedBarChart extends React.Component {
             .attr("width", x.bandwidth)
             .attr("cursor", "pointer")
             .attr("x", function(d) { return x(d.data.date); })
+            .attr("height", 0)
+            .attr("y", y(0))
+            .transition()
+            .duration(750)
+            .delay(function (d, i) { return i * 10; })               
             .attr("y", function(d) { return y(d[1]); })
             .attr("height", function(d) { return y(d[0]) - y(d[1]); })   
 

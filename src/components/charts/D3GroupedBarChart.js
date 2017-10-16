@@ -59,11 +59,16 @@ class D3GroupedBarChart extends React.Component {
           .on('mouseover', tip.show)
           .on('mouseout', tip.hide)
           .attr("x", function(d) { return x1(d.key); })
-          .attr("y", function(d) { return y(d.value); })
           .attr("cursor", "pointer")
           .attr("width", x1.bandwidth())
-          .attr("height", function(d) { return height - y(d.value); })
-          .attr("fill", function(d) { return z(d.key); });   
+          .attr("fill", function(d) { return z(d.key); })
+          .attr("height", 0)
+          .attr("y", height)
+          .transition()
+          .duration(750)
+          .delay(function (d, i) { return i * 10; })          
+          .attr("y", function(d) { return y(d.value); })
+          .attr("height", function(d) { return height - y(d.value); });
 
         g.append("g") // 画x轴
           .attr("class", "axis")

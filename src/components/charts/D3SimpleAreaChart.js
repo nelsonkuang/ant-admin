@@ -36,8 +36,11 @@ class D3SimpleAreaChart extends React.Component {
         chart.append("defs").append("clipPath") // 添加长方形方块，遮罩作用
             .attr("id", "clip")
           　.append("rect")
-            .attr("width", width)
-            .attr("height", height);
+            .attr("height", height)
+            .attr("width", 0) // 用遮罩实现线动画
+            .transition()
+            .duration(1000)           
+            .attr("width", width);
 
         /***  mainChart部分  ***/
         const mainAreaPath = d3.area() // 设置mainChart面积图路径

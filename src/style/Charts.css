@@ -31,6 +31,7 @@
 
 .bar-chart--simple .bar:hover{
     fill:purple;
+    cursor: pointer;
 }
 
 .stacked-demo.d3-tip {
