@@ -111,8 +111,8 @@ class Dashboard extends React.Component {
                                             <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clearfix">
-                                            <a href="" className="block">鸣人</a>
-                                            <span className="text-muted">终于当上火影了！</span>
+                                            <a href="" className="block">东风</a>
+                                            <span className="text-muted">快给我放炮吧！</span>
                                         </div>
                                     </li>
                                     <li className="list-group-item">
@@ -120,8 +120,8 @@ class Dashboard extends React.Component {
                                             <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clearfix">
-                                            <a href="" className="block">佐助</a>
-                                            <span className="text-muted">吊车尾~~</span>
+                                            <a href="" className="block">南风</a>
+                                            <span className="text-muted">３缺１，还不来？~~</span>
                                         </div>
                                     </li>
                                     <li className="list-group-item">
@@ -129,8 +129,8 @@ class Dashboard extends React.Component {
                                             <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clearfix">
-                                            <a href="" className="block">小樱</a>
-                                            <span className="text-muted">佐助，你好帅！</span>
+                                            <a href="" className="block">西风</a>
+                                            <span className="text-muted">喝西北风去了，老出冲！</span>
                                         </div>
                                     </li>
                                     <li className="list-group-item">
@@ -138,8 +138,8 @@ class Dashboard extends React.Component {
                                             <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clearfix">
-                                            <a href="" className="block">雏田</a>
-                                            <span className="text-muted">鸣人君。。。那个。。。我。。喜欢你..</span>
+                                            <a href="" className="block">北风</a>
+                                            <span className="text-muted">老大，快点吧，我等到花儿也谢了 ...</span>
                                         </div>
                                     </li>
                                 </ul>
