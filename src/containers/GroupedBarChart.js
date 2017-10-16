@@ -10,7 +10,7 @@ class GroupedBarChart extends React.Component {
             {date:'2013', q1:175, q2:230, q3:274, q4:274},  
             {date:'2014', q1:185, q2:250, q3:304, q4:294}, 
             {date:'2015', q1:195, q2:270, q3:334, q4:314},  
-            {date:'2016', q1:205, q2:290, q3:364, q4:334},                 
+            {date:'2016', q1:205, q2:290, q3:364, q4:null},                 
         ];   
         return (
             <div className="gutter-example grouped-bar-chart-demo">

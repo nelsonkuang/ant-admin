@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import * as d3 from 'd3';
 import * as d3Tip from 'd3-tip';
 
-class D3GroupedBarChart extends React.Component {
+class D3StackedBarChart extends React.Component {
     componentDidMount() {
         const containerWidth = this.chartRef.parentElement.offsetWidth;
         // const data = this.props.data;
@@ -12,18 +12,15 @@ class D3GroupedBarChart extends React.Component {
         const height = 500 - margin.top - margin.bottom;     
         let chart = d3.select(this.chartRef).attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom);  
 
-        let x0 = d3.scaleBand()
+        let x = d3.scaleBand()
             .rangeRound([0, width])
             .paddingInner(0.1);
-
-        let x1 = d3.scaleBand()
-            .padding(0.05);
 
         let y = d3.scaleLinear()
             .rangeRound([height, 0]);
 
         let z = d3.scaleOrdinal()
-            .range(["#98abc5", "#7b6888", "#a05d56", "#ff8c00"]);      
+            .range(d3.schemeCategory10);      
 
         const data = this.props.data;
         let keys = Object.keys(data[0]).slice(1);
@@ -34,41 +31,52 @@ class D3GroupedBarChart extends React.Component {
             q4:'第四季度'
         };
 
+        let series = d3.stack()
+            .keys(keys)
+            .offset(d3.stackOffsetDiverging)(data);
+
         let tip = d3Tip() // 设置tip
-            .attr('class', 'd3-tip')
+            .attr('class', 'd3-tip stacked-demo')
             .offset([-10, 0])
             .html(function (d) {
-                return "<strong>" + names[d.key] + "<br>营收:</strong> <span style='color:#ffeb3b'>" + d.value + " 万</span>";
+                return '<strong>' + d.data.date + '年</strong><br>'
+                + '<span style="color:'+ z(keys[0]) +'">' + names.q1 + ': ' + d.data.q1 + ' 万</span><br>'
+                + '<span style="color:'+ z(keys[1]) +'">' + names.q2 + ': ' + d.data.q2 + ' 万</span><br>'
+                + '<span style="color:'+ z(keys[2]) +'">' + names.q3 + ': ' + d.data.q3 + ' 万</span><br>'
+                + '<span style="color:'+ z(keys[3]) +'">' + names.q4 + ': ' + d.data.q4 + ' 万</span>';
             });
 
         chart.call(tip);
-        x0.domain(data.map(function(d) { return d.date; }));
-        x1.domain(keys).rangeRound([0, x0.bandwidth()]);
-        y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+
+        x.domain(data.map(function(d) { return d.date; }));
+        y.domain([d3.min(series, function(serie){
+            return d3.min(serie, function(d) { return d[0]; });
+        }),d3.max(series, function(serie){
+            return d3.max(serie, function(d) { return d[1]; });        
+        })]);
 
         let g = chart.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")"); // 设最外包层在总图上的相对位置
 
         g.append("g") // 画柱状图
-        .selectAll("g")
-        .data(data)
-        .enter().append("g")
-          .attr("transform", function(d) { return "translate(" + x0(d.date) + ",0)"; })
-        .selectAll("rect")
-        .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); }) // 把json数据转格式
-        .enter().append("rect")
-          .on('mouseover', tip.show)
-          .on('mouseout', tip.hide)
-          .attr("x", function(d) { return x1(d.key); })
-          .attr("y", function(d) { return y(d.value); })
-          .attr("cursor", "pointer")
-          .attr("width", x1.bandwidth())
-          .attr("height", function(d) { return height - y(d.value); })
-          .attr("fill", function(d) { return z(d.key); });   
+          .selectAll("g")
+          .data(series)
+          .enter().append("g")
+            .attr("fill", function(d) { return z(d.key); })
+          .selectAll("rect")
+            .data(function(d) { return d; })
+            .enter().append("rect")
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide)
+            .attr("width", x.bandwidth)
+            .attr("cursor", "pointer")
+            .attr("x", function(d) { return x(d.data.date); })
+            .attr("y", function(d) { return y(d[1]); })
+            .attr("height", function(d) { return y(d[0]) - y(d[1]); })   
 
         g.append("g") // 画x轴
           .attr("class", "axis")
-          .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(x0));
+          .attr("transform", "translate(0," + y(0) + ")")
+          .call(d3.axisBottom(x));
 
         g.append("g") // 画y轴
           .attr("class", "axis")
@@ -80,7 +88,7 @@ class D3GroupedBarChart extends React.Component {
           .attr("fill", "#000")
           .attr("font-weight", "bold")
           .attr("text-anchor", "start")
-          .text("营收(万)");
+          .text("利润(万)");
 
         let legend = g.append("g") // 画legend
           .attr("font-family", "sans-serif")
@@ -114,7 +122,7 @@ class D3GroupedBarChart extends React.Component {
             .attr('text-anchor', 'middle')
             .attr('x', containerWidth / 2)
             .attr('y', 20)
-            .text('XX公司近几年各季度产生营收情况汇总');        
+            .text('XX公司近几年各季度产生利润情况汇总');        
     }
     render() {
         return (
@@ -124,7 +132,7 @@ class D3GroupedBarChart extends React.Component {
         )
     }
 }
-D3GroupedBarChart.propTypes = {
+D3StackedBarChart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
     date:PropTypes.string.isRequired,
     q1:PropTypes.number,
@@ -135,4 +143,4 @@ D3GroupedBarChart.propTypes = {
 }
 
 
-export default D3GroupedBarChart;
+export default D3StackedBarChart;

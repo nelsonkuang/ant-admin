@@ -32,3 +32,11 @@
 .bar-chart--simple .bar:hover{
     fill:purple;
 }
+
+.stacked-demo.d3-tip {
+    background: rgba(0, 0, 0, 1);
+}
+
+.stacked-demo.d3-tip:after {
+    color: rgba(0, 0, 0, 1);
+}

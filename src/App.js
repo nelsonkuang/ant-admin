@@ -10,6 +10,7 @@ import SimplePieChart from './containers/SimplePieChart';
 import SimpleLineChart from './containers/SimpleLineChart';
 import SimplePointsChart from './containers/SimplePointsChart';
 import GroupedBarChart from './containers/GroupedBarChart';
+import StackedBarChart from './containers/StackedBarChart';
 import RootHeader from './components/layout/RootHeader';
 import RootBreadcrumb from './components/layout/RootBreadcrumb';
 import SiderMenus from './components/layout/SiderMenus';
@@ -51,7 +52,8 @@ class App extends Component {
                 <Route path='/simple-pie-chart' component={SimplePieChart} />
                 <Route path='/simple-line-chart' component={SimpleLineChart} />
                 <Route path='/simple-points-chart' component={SimplePointsChart} />
-                <Route path='/grouped-points-chart' component={GroupedBarChart} />
+                <Route path='/grouped-bar-chart' component={GroupedBarChart} />
+                <Route path='/stacked-bar-chart' component={StackedBarChart} />
                 <Redirect path="*" to="/" />
               </Switch>
             </Content>
