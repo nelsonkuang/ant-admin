@@ -189,6 +189,9 @@ small {
   height: 100%;
   overflow-y:auto; 
 }
+.ant-layout-sider-collapsed .ant-layout-sider-children{
+  overflow-y:visible;
+}
 
 .ant-layout-sider-children::-webkit-scrollbar {
     width: 4px;

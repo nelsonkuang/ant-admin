@@ -8,6 +8,7 @@ import SimpleBarChart from './containers/SimpleBarChart';
 import SimpleAreaChart from './containers/SimpleAreaChart';
 import SimplePieChart from './containers/SimplePieChart';
 import SimpleLineChart from './containers/SimpleLineChart';
+import SimpleLineChartII from './containers/SimpleLineChartII';
 import SimplePointsChart from './containers/SimplePointsChart';
 import GroupedBarChart from './containers/GroupedBarChart';
 import StackedBarChart from './containers/StackedBarChart';
@@ -51,6 +52,7 @@ class App extends Component {
                 <Route path='/simple-area-chart' component={SimpleAreaChart} />
                 <Route path='/simple-pie-chart' component={SimplePieChart} />
                 <Route path='/simple-line-chart' component={SimpleLineChart} />
+                <Route path='/simple-line-chartii' component={SimpleLineChartII} />
                 <Route path='/simple-points-chart' component={SimplePointsChart} />
                 <Route path='/grouped-bar-chart' component={GroupedBarChart} />
                 <Route path='/stacked-bar-chart' component={StackedBarChart} />
