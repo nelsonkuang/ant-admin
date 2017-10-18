@@ -73,7 +73,7 @@ class D3SimplePointsChart extends React.Component {
             .delay(function (d, i) { return i * 10; })      
             .attr('r', 10);
         chart.append('g')// 输出标题
-            .attr('class', 'bar--title')
+            .attr('class', 'chart--title')
             .append('text')
             .attr('fill', '#000')
             .attr('font-size', '16px')

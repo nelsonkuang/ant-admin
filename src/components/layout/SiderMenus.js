@@ -37,7 +37,8 @@ const SiderMenus = ({match}) => (
         <Menu.Item key="/simple-line-chartii"><Link to="/simple-line-chartii">D3 简单线状图II</Link></Menu.Item>        
         <Menu.Item key="/simple-points-chart"><Link to="/simple-points-chart">D3 简单散点图</Link></Menu.Item>
         <Menu.Item key="/grouped-bar-chart"><Link to="/grouped-bar-chart">D3 组合柱状图</Link></Menu.Item>
-        <Menu.Item key="/stacked-bar-chart"><Link to="/stacked-bar-chart">D3 堆栈柱状图</Link></Menu.Item>        
+        <Menu.Item key="/stacked-bar-chart"><Link to="/stacked-bar-chart">D3 堆栈柱状图</Link></Menu.Item>
+        <Menu.Item key="/simple-chord-chart"><Link to="/simple-chord-chart">D3 简单弦图</Link></Menu.Item>                 
       </SubMenu>
     </Menu>
   </div>

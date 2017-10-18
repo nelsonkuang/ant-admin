@@ -19,7 +19,8 @@ const RootBreadcrumb = ({match}) => {
     'grouped-bar-chart': 'D3 组合柱状图', 
     'stacked-bar-chart': 'D3 堆栈柱状图',
     'simple-line-chart': 'D3 简单线状图',   
-    'simple-line-chartii': 'D3 简单线状图II',     
+    'simple-line-chartii': 'D3 简单线状图II',
+    'simple-chord-chart': 'D3 简单弦图',   
   };
   return (
     <Breadcrumb style={{ margin: '12px 0' }}>

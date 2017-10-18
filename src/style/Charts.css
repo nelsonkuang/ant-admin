@@ -41,3 +41,15 @@
 .stacked-demo.d3-tip:after {
     color: rgba(0, 0, 0, 1);
 }
+
+.group-tick line {
+  stroke: #000;
+}
+
+.ribbons {
+  fill-opacity: 0.67;
+}
+
+.simple-chord.d3-tip:after{
+    display: none;
+}
