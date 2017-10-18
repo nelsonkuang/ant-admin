@@ -98,6 +98,11 @@ class D3SimpleChordChart extends React.Component {
             .on('mouseover', tip.show)
             .on('mouseout', tip.hide)
             .attr("d", ribbon)
+            .style("fill", '#fff')
+            .style("stroke", '#fff')
+            .transition()
+            .duration(50)
+            .delay(function (d, i) { return i * 50; })  
             .style("fill", function(d) { return color(d.target.index); })
             .style('cursor','pointer')
             .style("stroke", function(d) { return d3.rgb(color(d.target.index)).darker(); });      
