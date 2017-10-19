@@ -12,6 +12,15 @@ class D3SimpleDendrogramChart extends React.Component {
 
         let chart = d3.select(this.chartRef).attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom);  
 
+        chart.append("defs").append("clipPath") // 添加长方形方块，遮罩作用
+            .attr("id", "clip")
+          　.append("rect")
+            .attr("height", height)
+            .attr("width", 0) // 用遮罩实现线动画
+            .transition()
+            .duration(1000)           
+            .attr("width", width);        
+
         let g = chart.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")"); // 设最外包层在总图上的相对位置
         
         let z = d3.scaleOrdinal(d3.schemeCategory10);// 通用线条的颜色
@@ -29,6 +38,7 @@ class D3SimpleDendrogramChart extends React.Component {
         g.selectAll(".link") // 创建每条连接线
         .data(root.links())
         .enter().append("path")
+            .attr('clip-path', 'url(#clip)')
             .attr("class", "link")
             .style("stroke", "#666")
             .style("stroke-width", 1)
