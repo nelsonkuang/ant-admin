@@ -12,6 +12,7 @@ import SimplePointsChart from '../containers/SimplePointsChart';
 import GroupedBarChart from '../containers/GroupedBarChart';
 import StackedBarChart from '../containers/StackedBarChart';
 import SimpleChordChart from '../containers/SimpleChordChart';
+import SimpleDendrogramChart from '../containers/SimpleDendrogramChart';
 import NotFound from '../containers/NotFound';
 import RootBreadcrumb from '../components/layout/RootBreadcrumb';
 import SiderMenus from '../components/layout/SiderMenus';
@@ -35,7 +36,8 @@ export const ContentRoute = () =>
     <Route exact path='/simple-points-chart' component={SimplePointsChart} />
     <Route exact path='/grouped-bar-chart' component={GroupedBarChart} />
     <Route exact path='/stacked-bar-chart' component={StackedBarChart} />
-    <Route exact path='/simple-chord-chart' component={SimpleChordChart} />                
+    <Route exact path='/simple-chord-chart' component={SimpleChordChart} /> 
+    <Route exact path='/simple-dendrogram-chart' component={SimpleDendrogramChart} />               
     {/* Finally, catch all unmatched routes */}
     <Route component={NotFound} />
   </Switch>

@@ -14,7 +14,7 @@ class SimpleChordChart extends React.Component {
           ]
         };     
         return (
-            <div className="gutter-example simple-bar-chart-demo">
+            <div className="gutter-example simple-chord-chart-demo">
                 <Row gutter={10}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
