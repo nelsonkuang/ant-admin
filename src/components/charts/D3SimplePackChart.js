@@ -16,17 +16,17 @@ class D3SimplePackChart extends React.Component {
         
         let z = d3.scaleOrdinal(d3.schemeCategory10);// 通用线条的颜色
 
-        let root = d3.hierarchy(data)
+        let root = d3.hierarchy(data) //数据分层
             .sum(function(d) { return d.value; })
             .sort(function(a, b) { return b.value - a.value; });
 
-        let pack = d3.pack()
+        let pack = d3.pack() // 构建打包图
             .size([width - 2, height - 2])
             .padding(3);
 
         pack(root);
  
-        let node = g.selectAll("g")
+        let node = g.selectAll("g") // 定位到所有圆的中点，画g
         .data(root.descendants())
         .enter().append("g")
           .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
@@ -37,9 +37,9 @@ class D3SimplePackChart extends React.Component {
           .on("mouseover", hovered(true))
           .on("mouseout", hovered(false));
 
-        node.append("circle")
+        node.append("circle") // 画圈圈
               .attr("id", function(d) { 
-                return 'r' + Math.floor(d.r) + '-x' + Math.floor(d.x) + '-y' + Math.floor(d.y); 
+                return 'r' + Math.floor(d.r) + '-x' + Math.floor(d.x) + '-y' + Math.floor(d.y);  // 用r+x+y生成唯一id，原创思路
               })
               .style("fill", function(d) { return z(d.depth); }) 
               .attr("r", 0)            
@@ -48,14 +48,14 @@ class D3SimplePackChart extends React.Component {
               .delay(function (d, i) { return i * 50; })  
               .attr("r", function(d) { return d.r; });
 
-        let leaf = node.filter(function(d) { return !d.children; });
+        let leaf = node.filter(function(d) { return !d.children; }); // 筛选出叶子节点
 
-        leaf.append("clipPath")
+        leaf.append("clipPath") // 增加遮罩防止文字超出圆圈
           .attr("id", function(d) { return 'clip-' + 'r' + Math.floor(d.r) + '-x' + Math.floor(d.x) + '-y' + Math.floor(d.y); })
-        .append("use")
+        .append("use") // 大小引用圈圈的大小
           .attr("xlink:href", function(d) { return '#r' + Math.floor(d.r) + '-x' + Math.floor(d.x) + '-y' + Math.floor(d.y); });
 
-        leaf.append("text")
+        leaf.append("text") // 输出叶子文字
           .attr("clip-path", function(d) { return "url(#clip-" + "r" + Math.floor(d.r) + '-x' + Math.floor(d.x) + '-y' + Math.floor(d.y) + ")"; })
         .selectAll("tspan")
         .data(function(d) { return d.data.name; })
@@ -64,12 +64,12 @@ class D3SimplePackChart extends React.Component {
           .attr("y", function(d, i, nodes) { return 13 + (i - nodes.length / 2 - 0.5) * 12; })
           .text(function(d) { return d; });
 
-        node.append("title")
+        node.append("title") // 输出Title，mouseover显示
           .text(function(d) { return d.data.name + '\n' + d.value + '平方千米'; });
 
-        let notLeaf = node.filter(function(d) { return d.depth === 1; });
+        let notLeaf = node.filter(function(d) { return d.depth === 1; }); // 筛选出四大一线城市节点
 
-        notLeaf.append("text")
+        notLeaf.append("text") // 输出四大一线城市的名字
         .selectAll("tspan")
         .data(function(d) { return d.data.name; })
         .enter().append("tspan")
@@ -79,7 +79,7 @@ class D3SimplePackChart extends React.Component {
           .attr("y", function(d, i, nodes) { return 70 + (i - nodes.length / 2 - 0.5) * 70; })
           .text(function(d) { return d; });        
 
-        function hovered(hover) {
+        function hovered(hover) { // mouseover把所有老祖宗都圈线
           return function(d) {
             d3.selectAll(d.ancestors().map(function(d) { return d.node; })).classed("node--hover", hover);
           };
