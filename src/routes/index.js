@@ -11,6 +11,7 @@ import SimpleLineChartII from '../containers/SimpleLineChartII';
 import SimplePointsChart from '../containers/SimplePointsChart';
 import GroupedBarChart from '../containers/GroupedBarChart';
 import StackedBarChart from '../containers/StackedBarChart';
+import RadialStackedBarChart from '../containers/RadialStackedBarChart';
 import SimpleChordChart from '../containers/SimpleChordChart';
 import SimpleDendrogramChart from '../containers/SimpleDendrogramChart';
 import SimplePackChart from '../containers/SimplePackChart';
@@ -37,6 +38,7 @@ export const ContentRoute = () =>
     <Route exact path='/simple-points-chart' component={SimplePointsChart} />
     <Route exact path='/grouped-bar-chart' component={GroupedBarChart} />
     <Route exact path='/stacked-bar-chart' component={StackedBarChart} />
+    <Route exact path='/radial-stacked-bar-chart' component={RadialStackedBarChart} />
     <Route exact path='/simple-chord-chart' component={SimpleChordChart} /> 
     <Route exact path='/simple-dendrogram-chart' component={SimpleDendrogramChart} />     
     <Route exact path='/simple-pack-chart' component={SimplePackChart} />               

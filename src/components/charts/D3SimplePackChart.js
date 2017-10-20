@@ -51,12 +51,12 @@ class D3SimplePackChart extends React.Component {
         let leaf = node.filter(function(d) { return !d.children; }); // 筛选出叶子节点
 
         leaf.append("clipPath") // 增加遮罩防止文字超出圆圈
-          .attr("id", function(d) { return 'clip-' + 'r' + Math.floor(d.r) + '-x' + Math.floor(d.x) + '-y' + Math.floor(d.y); })
+          .attr("id", function(d) { return 'clip-r' + Math.floor(d.r) + '-x' + Math.floor(d.x) + '-y' + Math.floor(d.y); })
         .append("use") // 大小引用圈圈的大小
           .attr("xlink:href", function(d) { return '#r' + Math.floor(d.r) + '-x' + Math.floor(d.x) + '-y' + Math.floor(d.y); });
 
         leaf.append("text") // 输出叶子文字
-          .attr("clip-path", function(d) { return "url(#clip-" + "r" + Math.floor(d.r) + '-x' + Math.floor(d.x) + '-y' + Math.floor(d.y) + ")"; })
+          .attr("clip-path", function(d) { return "url(#clip-r" + Math.floor(d.r) + '-x' + Math.floor(d.x) + '-y' + Math.floor(d.y) + ")"; })
         .selectAll("tspan")
         .data(function(d) { return d.data.name; })
         .enter().append("tspan")

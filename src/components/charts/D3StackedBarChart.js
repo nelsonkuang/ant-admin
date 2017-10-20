@@ -39,11 +39,13 @@ class D3StackedBarChart extends React.Component {
             .attr('class', 'd3-tip stacked-demo')
             .offset([-10, 0])
             .html(function (d) {
+              　let total = d.data.q1 + d.data.q2 + d.data.q3 + d.data.q4;
                 return '<strong>' + d.data.date + '年</strong><br>'
                 + '<span style="color:'+ z(keys[0]) +'">' + names.q1 + ': ' + d.data.q1 + ' 万</span><br>'
                 + '<span style="color:'+ z(keys[1]) +'">' + names.q2 + ': ' + d.data.q2 + ' 万</span><br>'
                 + '<span style="color:'+ z(keys[2]) +'">' + names.q3 + ': ' + d.data.q3 + ' 万</span><br>'
-                + '<span style="color:'+ z(keys[3]) +'">' + names.q4 + ': ' + d.data.q4 + ' 万</span>';
+                + '<span style="color:'+ z(keys[3]) +'">' + names.q4 + ': ' + d.data.q4 + ' 万</span><br>'
+                + '<span style="color:#fff">年总: ' + total + ' 万</span>';
             });
 
         chart.call(tip);
@@ -131,7 +133,7 @@ class D3StackedBarChart extends React.Component {
     }
     render() {
         return (
-            <div className="bar-chart--grouped">
+            <div className="bar-chart--stacked">
                 <svg ref={(r) => this.chartRef = r}></svg>
             </div>
         )

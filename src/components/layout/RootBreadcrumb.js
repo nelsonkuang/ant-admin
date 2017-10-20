@@ -18,6 +18,7 @@ const RootBreadcrumb = ({match}) => {
     'simple-points-chart': 'D3 简单散点图',
     'grouped-bar-chart': 'D3 组合柱状图', 
     'stacked-bar-chart': 'D3 堆栈柱状图',
+    'radial-stacked-bar-chart': 'D3 径向堆栈柱状图',
     'simple-line-chart': 'D3 简单线状图',   
     'simple-line-chartii': 'D3 简单线状图II',
     'simple-chord-chart': 'D3 简单弦图',   
