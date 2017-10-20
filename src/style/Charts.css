@@ -53,3 +53,14 @@
 .simple-chord.d3-tip:after{
     display: none;
 }
+
+.simple-pack-chart-demo .node--hover circle {
+  stroke: #000;
+  stroke-width: 1.2px;
+}
+
+.simple-pack-chart-demo text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+  fill:#333;
+}

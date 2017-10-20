@@ -21,7 +21,8 @@ const RootBreadcrumb = ({match}) => {
     'simple-line-chart': 'D3 简单线状图',   
     'simple-line-chartii': 'D3 简单线状图II',
     'simple-chord-chart': 'D3 简单弦图',   
-    'simple-dendrogram-chart': 'D3 简单树状图',  
+    'simple-dendrogram-chart': 'D3 简单树状图',
+    'simple-pack-chart': 'D3 简单打包图', 
   };
   return (
     <Breadcrumb style={{ margin: '12px 0' }}>
