@@ -18,7 +18,6 @@ class D3SimplePieChart extends React.Component {
             .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
         let arc = d3.arc() // 定义单个圆弧
-            .outerRadius(radius - 10)
             .innerRadius(0)
             .padAngle(0);
 
@@ -45,14 +44,18 @@ class D3SimplePieChart extends React.Component {
 
         g.selectAll(".arc") // 画环图
             .data(pie(data))
-            .enter().append("path")
+            .enter().append("path")    
+            .attr("cursor", "pointer")
             .attr("class", "arc")
             .attr('stroke', function (d) { return colors(d.data.age); })
             .style("fill", function (d) { return colors(d.data.age); })
             .each(function(d) { // 储存当前起始与终点的角度、并设为相等
                 let tem = {...d, endAngle: d.startAngle};
+                d.outerRadius = radius - 10;
                 this._currentData = tem; 
             })
+            .on("mouseover", arcTween(radius + 50, 0))
+    　　　　.on("mouseout", arcTween(radius - 10, 150))
             .transition()
             .duration(100)
             .delay(function (d, i) { return i * 100; })
@@ -116,6 +119,15 @@ class D3SimplePieChart extends React.Component {
             .attr('x', 0)
             .attr('y', 0)
             .text('XX市人口年龄结构');     
+
+        function arcTween(outerRadius, delay) { // 设置缓动函数
+          return function() {
+            d3.select(this).transition().delay(delay).attrTween("d", function(d) {
+              var i = d3.interpolate(d.outerRadius, outerRadius);
+              return function(t) { d.outerRadius = i(t); return arc(d); };
+            });
+          };
+        }
     }
     render() {
         return (

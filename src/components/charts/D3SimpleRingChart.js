@@ -18,7 +18,7 @@ class D3SimpleRingChart extends React.Component {
             .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
         let arc = d3.arc() // 定义单个圆弧
-            .outerRadius(radius - 10)
+            // .outerRadius(radius - 10)
             .innerRadius(radius - 70)
             .padAngle(0.03);
 
@@ -48,8 +48,12 @@ class D3SimpleRingChart extends React.Component {
             .enter().append("path")
             .each(function(d) { // 储存当前起始与终点的角度、并设为相等
                 let tem = {...d, endAngle: d.startAngle};
+                d.outerRadius = radius - 10;
                 this._currentData = tem; 
             })
+            .on("mouseover", arcTween(radius + 50, 0))
+    　　　　.on("mouseout", arcTween(radius - 10, 150))
+            .attr("cursor", "pointer")
             .attr("class", "arc")
             .style("fill", function (d) { return colors(d.data.age); })
             .transition()
@@ -113,6 +117,16 @@ class D3SimpleRingChart extends React.Component {
             .attr('x', 0)
             .attr('y', 0)
             .text('XX市人口年龄结构');     
+
+        function arcTween(outerRadius, delay) { // 设置缓动函数
+          return function() {
+            d3.select(this).transition().delay(delay).attrTween("d", function(d) {
+              var i = d3.interpolate(d.outerRadius, outerRadius);
+              return function(t) { d.outerRadius = i(t); return arc(d); };
+            });
+          };
+        }
+            
     }
     render() {
         return (
