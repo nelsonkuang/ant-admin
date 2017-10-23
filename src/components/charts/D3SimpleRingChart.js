@@ -5,7 +5,7 @@ import * as d3 from 'd3';
 class D3SimpleRingChart extends React.Component {
     componentDidMount() {
         const containerWidth = this.chartRef.parentElement.offsetWidth;
-        const margin = { top: 80, right: 60, bottom: 30, left: 60 };
+        const margin = { top: 80, right: 60, bottom: 80, left: 60 };
         const width = containerWidth - margin.left - margin.right;
         const height = 600 - margin.top - margin.bottom;
         let chart = d3.select(this.chartRef).attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom);// 设置总宽高
@@ -126,7 +126,7 @@ class D3SimpleRingChart extends React.Component {
             });
           };
         }
-            
+
     }
     render() {
         return (

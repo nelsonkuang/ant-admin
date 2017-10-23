@@ -5,7 +5,7 @@ import * as d3 from 'd3';
 class D3SimplePieChart extends React.Component {
     componentDidMount() {
         const containerWidth = this.chartRef.parentElement.offsetWidth;
-        const margin = { top: 80, right: 60, bottom: 30, left: 60 };
+        const margin = { top: 80, right: 60, bottom: 80, left: 60 };
         const width = containerWidth - margin.left - margin.right;
         const height = 600 - margin.top - margin.bottom;
         let chart = d3.select(this.chartRef).attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom);// 设置总宽高
@@ -21,17 +21,17 @@ class D3SimplePieChart extends React.Component {
             .innerRadius(0)
             .padAngle(0);
 
-        let ageLabelArc = d3.arc() // 定义单个圆弧里面的age文字
+        let startPointArc = d3.arc() // 定义单个圆弧里面的线条开始点所在的弧
+            .outerRadius(radius - 10)
+            .innerRadius(radius - 10);
+
+        let percentLabelArc = d3.arc() // 定义单个圆弧里面的percent文字
             .outerRadius(radius - 60)
             .innerRadius(radius - 60);
 
-        let percentLabelArc = d3.arc() // 定义单个圆弧里面的percent文字
-            .outerRadius(radius - 20)
-            .innerRadius(radius - 20);
-
         let populationLabelArc = d3.arc() // 定义单个圆弧里面的population文字
-            .outerRadius(radius + 20)
-            .innerRadius(radius + 20);
+            .outerRadius(radius + 40)
+            .innerRadius(radius + 40);
 
         let pie = d3.pie() // 定义饼图
             .sort(null)
@@ -54,7 +54,7 @@ class D3SimplePieChart extends React.Component {
                 d.outerRadius = radius - 10;
                 this._currentData = tem; 
             })
-            .on("mouseover", arcTween(radius + 50, 0))
+            .on("mouseover", arcTween(radius + 20, 0))
     　　　　.on("mouseout", arcTween(radius - 10, 150))
             .transition()
             .duration(100)
@@ -70,18 +70,28 @@ class D3SimplePieChart extends React.Component {
 
         const arcs = pie(data); // 构造圆弧
 
-        let label = g.append("g");
+        let linkLine = g.append("g"); // 创建每条连接线
+        let links = [];
         arcs.forEach(function (d) { // 输出age文字
-            const c = ageLabelArc.centroid(d);
-            label.append("text")
-                 .attr("class", "age-text")
-                 .attr('fill', '#000')
-                 .attr('font-size', '12px')
-                 .attr('text-anchor', 'middle')
-                 .attr('x', c[0])
-                 .attr('y', c[1])
-                 .text(d.data.age + '岁');
+            const startPoint = startPointArc.centroid(d);
+            const endPoint = populationLabelArc.centroid(d);
+            links.push({
+                source: [startPoint[0], startPoint[1]],
+                target: [endPoint[0], endPoint[1]]
+            });
         });
+
+        linkLine.selectAll()
+        .data(links)
+        .enter()
+        .append("path")
+                .attr("class", "link-line")
+                .style("stroke", "#999")
+                .style("stroke-width", 1)
+                .attr('fill', 'none')
+                .attr("d", d3.linkHorizontal().source(function(d){ return d.source; }).target(function(d){ return d.target; }));        
+ 
+        let label = g.append("g");       
 
         arcs.forEach(function (d) { // 输出percent文字
             const c = percentLabelArc.centroid(d);
@@ -102,10 +112,12 @@ class D3SimplePieChart extends React.Component {
                  .attr("class", "age-text")
                  .attr('fill', '#000')
                  .attr('font-size', '12px')
-                 .attr('text-anchor', 'middle')
+                 .attr('text-anchor', function(d){
+                    return c[0] >= 0 ? 'start' : 'end'; 
+                 })
                  .attr('x', c[0])
                  .attr('y', c[1])
-                 .text((d.data.population / 10000).toFixed(2) + '万人');
+                 .text(d.data.age + '岁 : ' + (d.data.population / 10000).toFixed(2) + '万人');
         });
 
         chart.append('g')// 输出标题
