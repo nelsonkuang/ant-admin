@@ -73,8 +73,9 @@ class D3SimpleBarChart extends React.Component {
             .attr("width", x.bandwidth())
             .attr("height", 0) // 控制动画由下而上
             .transition()
-            .duration(750)
-            .delay(function (d, i) { return i * 10; })
+            .duration(200)
+            .ease(d3.easeBounceInOut)
+            .delay(function (d, i) { return i * 200; })
             .attr("y", function (d) { return y(d.frequency); })
             .attr("height", function (d) { return height - y(d.frequency); });
 

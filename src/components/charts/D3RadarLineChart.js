@@ -51,8 +51,8 @@ class D3RadarLineChart extends React.Component {
           　.append("circle")
             .attr("r", 0)            
             .transition()
-            .duration(200)
-            .delay(function (d, i) { return i * 200; })  
+            .duration(500)
+            .delay(function (d, i) { return i * 500; })  
             .attr("r", outerRadius);         
 
         let yAxis = g.append("g") // 画y轴圈圈及文字
