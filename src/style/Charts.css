@@ -64,3 +64,7 @@
   text-anchor: middle;
   fill:#333;
 }
+.radar-chart-demo .radar-line:hover{
+  fill-opacity:0.5;
+  stroke-width: 3px;
+}
