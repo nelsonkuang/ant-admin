@@ -26,6 +26,9 @@ yarn eject
 
 ```
 
+## License:
+
+[MIT](https://github.com/nelsonkuang/ant-admin/blob/master/LICENSE)
 
 ## 参考引用
 [https://bl.ocks.org/mbostock](https://bl.ocks.org/mbostock)   
