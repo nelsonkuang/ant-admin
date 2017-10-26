@@ -25,6 +25,7 @@ const RootBreadcrumb = ({match}) => {
     'simple-dendrogram-chart': 'D3 简单树状图',
     'simple-pack-chart': 'D3 简单打包图', 
     'radar-line-chart': 'D3 雷达图',
+    'simple-china-map-chart': 'D3 简单中国地图',
   };
   return (
     <Breadcrumb style={{ margin: '12px 0' }}>
