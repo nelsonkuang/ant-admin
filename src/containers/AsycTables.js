@@ -43,7 +43,7 @@ class AsycTables extends React.Component {
               },
               owner: {
                 displayName: item.owner.login,
-                link: item.owner.url,
+                link: item.owner.html_url,
               },
               createdAt: new Date(item.created_at).toLocaleString(),
               stargazersCount: item.stargazers_count,
@@ -123,7 +123,7 @@ class AsycTables extends React.Component {
                 <Row gutter={10}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
-                        <Card title={(<span>异步基础表格 - Github用户(ID: <a href="https://github.com/nelsonkuang" target="_blank" rel="nofollow noopener noreferrer">nelsonkuang</a>) 关注的项目列表</span>) } bordered={false}>
+                        <Card title={(<span>异步基础表格 - Github用户(ID: <a href="https://github.com/nelsonkuang" target="_blank" rel="nofollow noopener noreferrer">Nelsonkuang</a>) 关注的项目列表</span>) } bordered={false}>
                                 <Table loading={isFetching} dataSource={dataSource} columns={columns} pagination={paginationProps} size="middle"/>
                             </Card>
                         </div>
