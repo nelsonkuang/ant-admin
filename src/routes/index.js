@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from '../containers/Home';
 import Tables from '../containers/Tables';
+import AsycTables from '../containers/AsycTables';
 import Profile from '../containers/Profile';
 import SimpleBarChart from '../containers/SimpleBarChart';
 import SimpleAreaChart from '../containers/SimpleAreaChart';
@@ -31,6 +32,8 @@ export const ContentRoute = () =>
   <Switch>
     <Route exact path='/' component={Home} />
     <Route exact path='/tables' component={Tables} />
+    <Route exact path='/asyc-tables/:pageid' component={AsycTables} />
+    <Redirect from="/asyc-tables" to="/asyc-tables/1"/>
     <Route exact path='/profile' component={Profile} />
     <Route exact path='/simple-bar-chart' component={SimpleBarChart} />
     <Route exact path='/simple-area-chart' component={SimpleAreaChart} />

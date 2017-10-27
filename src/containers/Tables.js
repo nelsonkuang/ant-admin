@@ -154,7 +154,7 @@ class Tables extends React.Component {
                 <Row gutter={10}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
-                            <Card title="基础表格" bordered={false}>
+                            <Card title="基础表格 - 编辑" bordered={false}>
                                 <Table dataSource={dataSource2} columns={columns2} size="middle"/>
                             </Card>
                         </div>
@@ -163,7 +163,7 @@ class Tables extends React.Component {
                 <Row gutter={10}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
-                            <Card title="基础表格" bordered={false}>
+                            <Card title="基础表格 - 筛选" bordered={false}>
                                 <Table dataSource={dataSource3} columns={columns3} size="middle"/>
                             </Card>
                         </div>

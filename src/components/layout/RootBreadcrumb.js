@@ -10,7 +10,8 @@ const RootBreadcrumb = ({match}) => {
   let temArr = [''];
   const home = '首页'
   const names = {
-    tables: '表格',
+    tables: '简单表格',
+    'asyc-tables': '简单异步表格',
     profile: '个人信息',
     'simple-bar-chart': 'D3 简单柱状图',
     'simple-area-chart': 'D3 简单面积图',  
@@ -35,7 +36,9 @@ const RootBreadcrumb = ({match}) => {
       {
         urlArr[0] !== urlArr[1] && urlArr.map((item, index) => {
           let key = item!=='' ? item : 'home';
-          temArr.push(item);
+          if(item!== ''){
+            temArr.push(item);
+          }
           if(index !== len - 1){
             return (
               <Breadcrumb.Item key={key}>
@@ -45,7 +48,7 @@ const RootBreadcrumb = ({match}) => {
               </Breadcrumb.Item>
             )
           } else{
-            return (<Breadcrumb.Item key={key}>{names[item]}</Breadcrumb.Item>)
+            return (<Breadcrumb.Item key={key}>{names[item] ? names[item] : item}</Breadcrumb.Item>)
           }
         })
       }
