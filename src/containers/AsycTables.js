@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import { Row, Col, Card, Table } from 'antd';
+import { getQueryString } from '../utils/tools';
+
+const PERPAGE = 15;
+const USERNAME = 'nelsonkuang';
 
 class AsycTables extends React.Component {
     constructor(props) {
@@ -30,8 +34,7 @@ class AsycTables extends React.Component {
       (async () => {
         try {
           const page = parseInt(matchUrl.split('/')[2], 10);
-          const LOGIN = 'nelsonkuang';
-          const res = await fetch(`https://api.github.com/users/${LOGIN}/starred?page=${page}`);
+          const res = await fetch(`https://api.github.com/users/${USERNAME}/starred?per_page=${PERPAGE}&page=${page}`);
           const link = await res.headers.get('link');
           const json = await res.json();
           const dataSource = await json.map(item => {
@@ -89,19 +92,19 @@ class AsycTables extends React.Component {
       let total = 0;
       let str = link.split(',').find(s => s.indexOf('rel="last"') > -1);
       if(str) {
-        total = str.split(';')[0].slice(1, -1).split('=')[1];
+        total = getQueryString(str.split(';')[0].slice(1, -1), 'page');
       } else {
         str = link.split(',').find(s => s.indexOf('rel="prev"') > -1);
         if(str) {
-          total = str.split(';')[0].slice(1, -1).split('=')[1] * 1 + 1;
+          total = getQueryString(str.split(';')[0].slice(1, -1), 'page') * 1 + 1;
         }
       }
       
       return {
-        total: total * 30,
+        total: total * PERPAGE,
         current: currentPage * 1,
-        defaultPageSize: 30,
-        pageSize: 30, // github默认每页30条
+        defaultPageSize: PERPAGE,
+        pageSize: PERPAGE, // github默认每页30条
         itemRender: (current, type, originalElement) => { // 修改上一页、下一页中文
           if (type === 'prev') {
             return <a>上一页</a>;
@@ -110,7 +113,7 @@ class AsycTables extends React.Component {
           }
           return originalElement;
         },
-        onChange: (page, pageSize) => { // 分布跳转
+        onChange: (page, pageSize) => { // 分页跳转
           const {match, history} = this.props;
           history.push(match.path.replace(':pageid',page));
         }

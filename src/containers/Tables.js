@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col, Card, Table, Icon } from 'antd';
 
-
 class Tables extends React.Component {
     render() {
         const dataSource1 = [{
