@@ -22,7 +22,7 @@ class AsycTables extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-      if(nextProps.match !== this.props.match){
+      if(nextProps.match.url !== this.props.match.url){
         this.setState({
             isFetching: true,
         });
