@@ -16,6 +16,7 @@ import RadialStackedBarChart from '../containers/RadialStackedBarChart';
 import SimpleChordChart from '../containers/SimpleChordChart';
 import SimpleDendrogramChart from '../containers/SimpleDendrogramChart';
 import SimplePackChart from '../containers/SimplePackChart';
+import SimpleForceChart from '../containers/SimpleForceChart';
 import RadarLineChart from '../containers/RadarLineChart';
 import SimpleChinaMapChart from '../containers/SimpleChinaMapChart';
 import NotFound from '../containers/NotFound';
@@ -47,6 +48,7 @@ export const ContentRoute = () =>
     <Route exact path='/simple-chord-chart' component={SimpleChordChart} /> 
     <Route exact path='/simple-dendrogram-chart' component={SimpleDendrogramChart} />     
     <Route exact path='/simple-pack-chart' component={SimplePackChart} />
+    <Route exact path='/simple-force-chart' component={SimpleForceChart} />
     <Route exact path='/radar-line-chart' component={RadarLineChart} />
     <Route exact path='/simple-china-map-chart' component={SimpleChinaMapChart} />          
     {/* Finally, catch all unmatched routes */}
