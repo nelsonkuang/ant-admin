@@ -19,6 +19,7 @@ import SimplePackChart from '../containers/SimplePackChart';
 import SimpleForceChart from '../containers/SimpleForceChart';
 import RadarLineChart from '../containers/RadarLineChart';
 import SimpleChinaMapChart from '../containers/SimpleChinaMapChart';
+import SimpleTagCloudChart from '../containers/SimpleTagCloudChart';
 import NotFound from '../containers/NotFound';
 import RootBreadcrumb from '../components/layout/RootBreadcrumb';
 import SiderMenus from '../components/layout/SiderMenus';
@@ -50,7 +51,8 @@ export const ContentRoute = () =>
     <Route exact path='/simple-pack-chart' component={SimplePackChart} />
     <Route exact path='/simple-force-chart' component={SimpleForceChart} />
     <Route exact path='/radar-line-chart' component={RadarLineChart} />
-    <Route exact path='/simple-china-map-chart' component={SimpleChinaMapChart} />          
+    <Route exact path='/simple-china-map-chart' component={SimpleChinaMapChart} />
+    <Route exact path='/simple-tag-cloud-chart' component={SimpleTagCloudChart} />           
     {/* Finally, catch all unmatched routes */}
     <Route component={NotFound} />
   </Switch>

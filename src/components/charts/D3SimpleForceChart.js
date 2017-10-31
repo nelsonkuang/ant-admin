@@ -12,7 +12,7 @@ class D3SimpleForceChart extends React.Component {
         let chart = d3.select(this.chartRef).attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom);  
         let g = chart.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")"); // 设最外包层在总图上的相对位置
         let simulation = d3.forceSimulation() // 构建力导向图
-                    .force('link',d3.forceLink().id(function(d, i) { return i; }).distance(200))
+                    .force('link',d3.forceLink().id(function(d, i) { return i; }).distance(function(d) { return d.value * 50; }))
                     .force("charge", d3.forceManyBody())
                     .force("center", d3.forceCenter(width / 2, height / 2));
 

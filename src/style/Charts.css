@@ -79,11 +79,15 @@
 }
 
 .force-chart--simple .nodes g{
-  cursor: pointer;
+  cursor: move;
 }
 
 .force-chart--simple .link-text text {
   font-size: 14px ;
   fill:#000;
   fill-opacity: 0;  
+}
+
+.tag-cloud-chart--simple .nodes text {
+   font-weight: 700; 
 }
