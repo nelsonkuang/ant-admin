@@ -4,7 +4,8 @@
 var dispatch = require("d3-dispatch").dispatch;
 
 var cloudRadians = Math.PI / 180,
-    cw = 1 << 11 >> 5,
+    // eslint-disable-next-line
+    cw = 1 << 11 >> 5, 
     ch = 1 << 11;
 
 module.exports = function() {
@@ -99,8 +100,9 @@ module.exports = function() {
   }
 
   function place(board, tag, bounds) {
-    var perimeter = [{x: 0, y: 0}, {x: size[0], y: size[1]}],
-        startX = tag.x,
+    // eslint-disable-next-line
+    var perimeter = [{x: 0, y: 0}, {x: size[0], y: size[1]}], 
+        startX = tag.x, 
         startY = tag.y,
         maxDelta = Math.sqrt(size[0] * size[0] + size[1] * size[1]),
         s = spiral(size),
@@ -109,8 +111,8 @@ module.exports = function() {
         dxdy,
         dx,
         dy;
-
-    while (dxdy = s(t += dt)) {
+    // eslint-disable-next-line
+    while (dxdy = s(t += dt)) { 
       dx = ~~dxdy[0];
       dy = ~~dxdy[1];
 
@@ -254,10 +256,12 @@ function cloudSprite(contextAndRatio, d, data, di) {
           wsr = w * sr,
           hcr = h * cr,
           hsr = h * sr;
-      w = (Math.max(Math.abs(wcr + hsr), Math.abs(wcr - hsr)) + 0x1f) >> 5 << 5;
+      // eslint-disable-next-line
+      w = (Math.max(Math.abs(wcr + hsr), Math.abs(wcr - hsr)) + 0x1f) >> 5 << 5; 
       h = ~~Math.max(Math.abs(wsr + hcr), Math.abs(wsr - hcr));
     } else {
-      w = (w + 0x1f) >> 5 << 5;
+      // eslint-disable-next-line
+      w = (w + 0x1f) >> 5 << 5; 
     }
     if (h > maxh) maxh = h;
     if (x + w >= (cw << 5)) {
@@ -269,7 +273,8 @@ function cloudSprite(contextAndRatio, d, data, di) {
     c.translate((x + (w >> 1)) / ratio, (y + (h >> 1)) / ratio);
     if (d.rotate) c.rotate(d.rotate * cloudRadians);
     c.fillText(d.text, 0, 0);
-    if (d.padding) c.lineWidth = 2 * d.padding, c.strokeText(d.text, 0, 0);
+    // eslint-disable-next-line
+    if (d.padding) c.lineWidth = 2 * d.padding, c.strokeText(d.text, 0, 0); 
     c.restore();
     d.width = w;
     d.height = h;
@@ -287,9 +292,11 @@ function cloudSprite(contextAndRatio, d, data, di) {
   while (--di >= 0) {
     d = data[di];
     if (!d.hasText) continue;
-    var w = d.width,
+    // eslint-disable-next-line
+    var w = d.width, 
         w32 = w >> 5,
-        h = d.y1 - d.y0;
+        // eslint-disable-next-line
+        h = d.y1 - d.y0; 
     // Zero the buffer
     for (var i = 0; i < h * w32; i++) sprite[i] = 0;
     x = d.xoff;
@@ -298,7 +305,8 @@ function cloudSprite(contextAndRatio, d, data, di) {
     var seen = 0,
         seenRow = -1;
     for (var j = 0; j < h; j++) {
-      for (var i = 0; i < w; i++) {
+      // eslint-disable-next-line
+      for (var i = 0; i < w; i++) { 
         var k = w32 * j + (i >> 5),
             m = pixels[((y + j) * (cw << 5) + (x + i)) << 2] ? 1 << (31 - (i % 32)) : 0;
         sprite[k] |= m;
@@ -331,7 +339,8 @@ function cloudCollide(tag, board, sw) {
   for (var j = 0; j < h; j++) {
     last = 0;
     for (var i = 0; i <= w; i++) {
-      if (((last << msx) | (i < w ? (last = sprite[j * w + i]) >>> sx : 0))
+      // eslint-disable-next-line
+      if (((last << msx) | (i < w ? (last = sprite[j * w + i]) >>> sx : 0)) 
           & board[x + i]) return true;
     }
     x += sw;
