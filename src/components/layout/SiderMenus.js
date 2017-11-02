@@ -46,7 +46,8 @@ const SiderMenus = ({match}) => (
         <Menu.Item key="/radar-line-chart"><Link to="/radar-line-chart">D3 雷达图</Link></Menu.Item>
         <Menu.Item key="/simple-china-map-chart"><Link to="/simple-china-map-chart">D3 简单中国地图</Link></Menu.Item>
         <Menu.Item key="/simple-force-chart"><Link to="/simple-force-chart">D3 简单力导向图</Link></Menu.Item>
-        <Menu.Item key="/simple-tag-cloud-chart"><Link to="/simple-tag-cloud-chart">D3 简单标签云图</Link></Menu.Item>                     
+        <Menu.Item key="/simple-tag-cloud-chart"><Link to="/simple-tag-cloud-chart">D3 简单标签云图</Link></Menu.Item>
+        <Menu.Item key="/vertical-bp-chart"><Link to="/vertical-bp-chart">D3 竖向业务合作伙伴图</Link></Menu.Item>                    
       </SubMenu>
     </Menu>  
   </div>
