@@ -9,7 +9,7 @@ class D3SimplePointsChart extends React.Component {
         const points = this.props.data;
         const margin = { top: 80, right: 60, bottom: 80, left: 60 };
         const width = containerWidth - margin.left - margin.right;
-        const height = 500 - margin.top - margin.bottom;     
+        const height = 600 - margin.top - margin.bottom;     
         let chart = d3.select(this.chartRef).attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom);  
 
         let x = d3.scaleLinear().domain([0, d3.max(points, function (d) { return d[0]; })]).range([0, width]);

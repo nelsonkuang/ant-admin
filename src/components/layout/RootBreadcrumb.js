@@ -30,6 +30,7 @@ const RootBreadcrumb = ({match}) => {
     'simple-force-chart': 'D3 简单力导向图',
     'simple-tag-cloud-chart': 'D3 简单标签云图',
     'vertical-bp-chart': 'D3 竖向业务合作伙伴图',
+    'simple-math-chart': '线性函数',
   };
   return (
     <Breadcrumb style={{ margin: '12px 0' }}>

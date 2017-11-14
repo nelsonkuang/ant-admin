@@ -7,7 +7,7 @@ const { SubMenu } = Menu;
 
 const SiderMenus = ({match}) => (
   <div style={{paddingBottom:'120px'}}>
-    <Menu theme="dark" defaultSelectedKeys={[match.url]} selectedKeys={[match.url]} defaultOpenKeys={['sub3']} mode="inline">
+    <Menu theme="dark" defaultSelectedKeys={[match.url]} selectedKeys={[match.url]} defaultOpenKeys={['sub4']} mode="inline">
       <Menu.Item key="/">
         <Link to="/">
           <Icon type="home" />
@@ -29,6 +29,12 @@ const SiderMenus = ({match}) => (
       </SubMenu>
       <SubMenu
         key="sub3"
+        title={<span><Icon type="dot-chart" /><span>数学图形</span></span>}
+      >
+        <Menu.Item key="/simple-math-chart"><Link to="/simple-math-chart">线性函数</Link></Menu.Item>
+      </SubMenu>
+      <SubMenu
+        key="sub4"
         title={<span><Icon type="area-chart" /><span>D3.js图库</span></span>}
       >
         <Menu.Item key="/simple-bar-chart"><Link to="/simple-bar-chart">D3 简单柱状图</Link></Menu.Item>
