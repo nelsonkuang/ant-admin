@@ -31,7 +31,7 @@ const SiderMenus = ({match}) => (
         key="sub3"
         title={<span><Icon type="dot-chart" /><span>数学图形</span></span>}
       >
-        <Menu.Item key="/simple-math-chart"><Link to="/simple-math-chart">线性函数</Link></Menu.Item>
+        <Menu.Item key="/simple-math-chart"><Link to="/simple-math-chart">常用函数图像</Link></Menu.Item>
       </SubMenu>
       <SubMenu
         key="sub4"
