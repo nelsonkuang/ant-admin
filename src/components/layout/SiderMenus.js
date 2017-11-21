@@ -32,6 +32,9 @@ const SiderMenus = ({match}) => (
         title={<span><Icon type="dot-chart" /><span>数学图形</span></span>}
       >
         <Menu.Item key="/simple-math-chart"><Link to="/simple-math-chart">常用函数图像</Link></Menu.Item>
+        <Menu.Item key="/archimedean-spiral-line"><Link to="/archimedean-spiral-line">阿基米德螺线</Link></Menu.Item>
+        <Menu.Item key="/exponential-spiral-line"><Link to="/exponential-spiral-line">指数函数图像-极坐标</Link></Menu.Item>
+        <Menu.Item key="/logarithmic-spiral-line"><Link to="/logarithmic-spiral-line">对数函数图像-极坐标</Link></Menu.Item>
       </SubMenu>
       <SubMenu
         key="sub4"

@@ -22,6 +22,9 @@ import SimpleChinaMapChart from '../containers/SimpleChinaMapChart';
 import SimpleTagCloudChart from '../containers/SimpleTagCloudChart';
 import VerticalBPChart from '../containers/VerticalBPChart';
 import SimpleMathChart from '../containers/SimpleMathChart';
+import ExponentialSpiralLine from '../containers/ExponentialSpiralLine';
+import LogarithmicSpiralLine from '../containers/LogarithmicSpiralLine';
+import ArchimedeanSpiralLine from '../containers/ArchimedeanSpiralLine';
 import NotFound from '../containers/NotFound';
 import RootBreadcrumb from '../components/layout/RootBreadcrumb';
 import SiderMenus from '../components/layout/SiderMenus';
@@ -56,7 +59,10 @@ export const ContentRoute = () =>
     <Route exact path='/simple-china-map-chart' component={SimpleChinaMapChart} />
     <Route exact path='/simple-tag-cloud-chart' component={SimpleTagCloudChart} />
     <Route exact path='/vertical-bp-chart' component={VerticalBPChart} />
-    <Route exact path='/simple-math-chart' component={SimpleMathChart} />                
+    <Route exact path='/simple-math-chart' component={SimpleMathChart} />
+    <Route exact path='/exponential-spiral-line' component={ExponentialSpiralLine} />  
+    <Route exact path='/logarithmic-spiral-line' component={LogarithmicSpiralLine} /> 
+    <Route exact path='/archimedean-spiral-line' component={ArchimedeanSpiralLine} />                    
     {/* Finally, catch all unmatched routes */}
     <Route component={NotFound} />
   </Switch>

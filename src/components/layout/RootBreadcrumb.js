@@ -31,6 +31,9 @@ const RootBreadcrumb = ({match}) => {
     'simple-tag-cloud-chart': 'D3 简单标签云图',
     'vertical-bp-chart': 'D3 竖向业务合作伙伴图',
     'simple-math-chart': '常用函数图像',
+    'exponential-spiral-line': '指数函数图像-极坐标',
+    'logarithmic-spiral-line': '对数函数图像-极坐标',
+    'archimedean-spiral-line': '阿基米德螺线',
   };
   return (
     <Breadcrumb style={{ margin: '12px 0' }}>
