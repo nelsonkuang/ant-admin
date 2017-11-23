@@ -4,6 +4,7 @@ import D3LinearLine from '../components/math/D3LinearLine';
 import D3QuadraticLine from '../components/math/D3QuadraticLine';
 import D3ExponentialLine from '../components/math/D3ExponentialLine';
 import D3LogarithmicLine from '../components/math/D3LogarithmicLine';
+import D3SinusoidLine from '../components/math/D3SinusoidLine';
 
 class SimpleMathChart extends React.Component {
     constructor(props) {
@@ -23,7 +24,13 @@ class SimpleMathChart extends React.Component {
             },
             logarithmicLine: {
               a: Math.E,
-            }
+            },
+            sinusoidLine: {
+              a: 1,
+              b: 1,
+              c: 0,
+              d: 0,
+            },
         };
         this.onLinearLineKChange = this.onLinearLineKChange.bind(this);
         this.onLinearLineBChange = this.onLinearLineBChange.bind(this);
@@ -32,6 +39,10 @@ class SimpleMathChart extends React.Component {
         this.onQuadraticLineCChange = this.onQuadraticLineCChange.bind(this);
         this.onExponentialLineAChange = this.onExponentialLineAChange.bind(this);
         this.onLogarithmicLineAChange = this.onLogarithmicLineAChange.bind(this);
+        this.onSinusoidLineAChange = this.onSinusoidLineAChange.bind(this);
+        this.onSinusoidLineBChange = this.onSinusoidLineBChange.bind(this);
+        this.onSinusoidLineCChange = this.onSinusoidLineCChange.bind(this);
+        this.onSinusoidLineDChange = this.onSinusoidLineDChange.bind(this);
     }
 
     onLinearLineKChange = e => {
@@ -93,8 +104,36 @@ class SimpleMathChart extends React.Component {
       }
     }  
 
+    onSinusoidLineAChange = e => {
+      const { sinusoidLine } = this.state;
+      this.setState({
+          sinusoidLine: Object.assign({}, sinusoidLine, {a: 1 * e.target.value})
+      });
+    }  
+
+    onSinusoidLineBChange = e => {
+      const { sinusoidLine } = this.state;
+      this.setState({
+          sinusoidLine: Object.assign({}, sinusoidLine, {b: 1 * e.target.value})
+      });
+    }    
+
+    onSinusoidLineCChange = e => {
+      const { sinusoidLine } = this.state;
+      this.setState({
+          sinusoidLine: Object.assign({}, sinusoidLine, {c: 1 * e.target.value})
+      });
+    } 
+
+    onSinusoidLineDChange = e => {
+      const { sinusoidLine } = this.state;
+      this.setState({
+          sinusoidLine: Object.assign({}, sinusoidLine, {d: 1 * e.target.value})
+      });
+    } 
+
     render() {
-        const {linearLine, quadraticLine, exponentialLine, logarithmicLine} = this.state;
+        const {linearLine, quadraticLine, exponentialLine, logarithmicLine, sinusoidLine} = this.state;
         return (
             <div className="gutter-example simple-math-chart-demo">
                 <Row gutter={10}>
@@ -143,7 +182,23 @@ class SimpleMathChart extends React.Component {
                             </Card>
                         </div>
                     </Col>
-                </Row>             
+                </Row>  
+
+                <Row gutter={10}>
+                    <Col className="gutter-row" md={24}>
+                        <div className="gutter-box">
+                            <Card title={
+                              <span>正/余弦曲线（Sinusoid/Sine wave）y=Asin(ωx+φ)+k（k、ω、φ∈R且ω≠0）设: A = 
+                                <Input placeholder="请输入A" style={{width:'10%'}} type='number' onChange={this.onSinusoidLineAChange} /> ω = 
+                                <Input placeholder="请输入ω"  style={{width:'10%'}} type='number' onChange={this.onSinusoidLineBChange} /> φ = 
+                                <Input placeholder="请输入φ"  style={{width:'10%'}} type='number' onChange={this.onSinusoidLineCChange} /> k = 
+                                <Input placeholder="请输入k"  style={{width:'10%'}} type='number' onChange={this.onSinusoidLineDChange} /> 
+                              </span>} bordered={false}>
+                                <D3SinusoidLine a={sinusoidLine.a} b={sinusoidLine.b} c={sinusoidLine.c} d={sinusoidLine.d} />
+                            </Card>
+                        </div>
+                    </Col>
+                </Row>        
             </div>
         )
     }

@@ -34,7 +34,7 @@ class ExponentialSpiralLine extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title={
-                              <span>指数函数图像-极坐标(又称等角螺线/对数螺线)(注意：本应等角，现坐标加了立方径向，使等看似不等角) y=a^x(a>0且a≠1) (x∈R) 设: a = 
+                              <span>指数函数图像-极坐标(又称等角螺线/对数螺线)(注意：本应等角，现坐标加了立方径向，使得看似不等角) y=a^x(a>0且a≠1) (x∈R) 设: a = 
                                 <Input placeholder="请输入a的值" style={{width:'15%'}} type='number' onChange={this.onExponentialSpiralLineAChange} value={exponentialSpiralLine.a} />
                               </span>} bordered={false}>
                                 <D3ExponentialSpiralLine a={exponentialSpiralLine.a} />
