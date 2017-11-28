@@ -25,6 +25,7 @@ import SimpleMathChart from '../containers/SimpleMathChart';
 import ExponentialSpiralLine from '../containers/ExponentialSpiralLine';
 import LogarithmicSpiralLine from '../containers/LogarithmicSpiralLine';
 import ArchimedeanSpiralLine from '../containers/ArchimedeanSpiralLine';
+import EquiangularSpiralLine from '../containers/EquiangularSpiralLine';
 import NotFound from '../containers/NotFound';
 import RootBreadcrumb from '../components/layout/RootBreadcrumb';
 import SiderMenus from '../components/layout/SiderMenus';
@@ -62,7 +63,8 @@ export const ContentRoute = () =>
     <Route exact path='/simple-math-chart' component={SimpleMathChart} />
     <Route exact path='/exponential-spiral-line' component={ExponentialSpiralLine} />  
     <Route exact path='/logarithmic-spiral-line' component={LogarithmicSpiralLine} /> 
-    <Route exact path='/archimedean-spiral-line' component={ArchimedeanSpiralLine} />                    
+    <Route exact path='/archimedean-spiral-line' component={ArchimedeanSpiralLine} /> 
+    <Route exact path='/equiangular-spiral-line' component={EquiangularSpiralLine} />               
     {/* Finally, catch all unmatched routes */}
     <Route component={NotFound} />
   </Switch>
