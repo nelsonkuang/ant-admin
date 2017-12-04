@@ -91,3 +91,24 @@
 .tag-cloud-chart--simple .nodes text {
    font-weight: 700; 
 }
+
+.simple-voronoi-chart-demo .links {
+  stroke: #fff;
+}
+
+.simple-voronoi-chart-demo .polygons {
+  stroke: none;
+}
+
+.simple-voronoi-chart-demo .polygons :first-child {
+  fill: #ccc;
+}
+
+.simple-voronoi-chart-demo .sites {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.simple-voronoi-chart-demo .sites :first-child {
+  fill: #fff;
+}

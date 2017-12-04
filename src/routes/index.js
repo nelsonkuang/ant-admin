@@ -17,6 +17,7 @@ import SimpleChordChart from '../containers/SimpleChordChart';
 import SimpleDendrogramChart from '../containers/SimpleDendrogramChart';
 import SimplePackChart from '../containers/SimplePackChart';
 import SimpleForceChart from '../containers/SimpleForceChart';
+import SimpleVoronoiChart from '../containers/SimpleVoronoiChart';
 import RadarLineChart from '../containers/RadarLineChart';
 import SimpleChinaMapChart from '../containers/SimpleChinaMapChart';
 import SimpleTagCloudChart from '../containers/SimpleTagCloudChart';
@@ -56,6 +57,7 @@ export const ContentRoute = () =>
     <Route exact path='/simple-dendrogram-chart' component={SimpleDendrogramChart} />     
     <Route exact path='/simple-pack-chart' component={SimplePackChart} />
     <Route exact path='/simple-force-chart' component={SimpleForceChart} />
+    <Route exact path='/simple-voronoi-chart' component={SimpleVoronoiChart} />
     <Route exact path='/radar-line-chart' component={RadarLineChart} />
     <Route exact path='/simple-china-map-chart' component={SimpleChinaMapChart} />
     <Route exact path='/simple-tag-cloud-chart' component={SimpleTagCloudChart} />

@@ -208,3 +208,12 @@ small {
     -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,.3);
     background-color: #ccc;
 }
+
+.ant-menu-dark .ant-menu-item .ant-badge > a {
+    color: rgba(255, 255, 255, 0.67);
+}
+
+.ant-menu-dark .ant-menu-item .ant-badge :hover > a, .ant-menu-dark .ant-menu-item-active .ant-badge > a, .ant-menu-dark .ant-menu-submenu-active .ant-badge > a, .ant-menu-dark:not(.ant-menu-inline) .ant-menu-submenu-open .ant-badge > a, .ant-menu-dark .ant-menu-submenu-selected .ant-badge > a, .ant-menu-dark .ant-menu-submenu-title:hover .ant-badge > a {
+    color: #fff;
+    text-decoration: none;
+}

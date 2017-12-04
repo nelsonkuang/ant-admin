@@ -35,6 +35,7 @@ const RootBreadcrumb = ({match}) => {
     'logarithmic-spiral-line': '对数函数图像-极坐标',
     'archimedean-spiral-line': '阿基米德螺线',
     'equiangular-spiral-line': '等角螺线',
+    'simple-voronoi-chart': 'D3 泰森多边形 / 冯洛诺伊图',
   };
   return (
     <Breadcrumb style={{ margin: '12px 0' }}>
