@@ -105,7 +105,7 @@ class D3SimpleBarChart extends React.Component {
             .attr('text-anchor', 'middle')
             .attr('x', containerWidth / 2)
             .attr('y', 20)
-            .text('本周酒店房间空置率');        
+            .text('少时诵诗书');        
     }
     render() {
         return (
