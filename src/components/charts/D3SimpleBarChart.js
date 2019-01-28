@@ -16,9 +16,7 @@ class D3SimpleBarChart extends React.Component {
         let y = d3.scaleLinear().rangeRound([height, 0]).domain([0, d3.max(data, function (d) { return d.frequency; })]); // 设置y轴
 
         const barWidth = (width / data.length) * 0.9; // 用于绘制每条柱
-        const maxFrequency = Math.floor(d3.max(data, function (d) { return d.frequency; })* 100) + 1; // 用于生成背景柱
-        const stepMaxFrequency = Math.floor(maxFrequency / 10); // 用于生成背景柱
-        const scaleMaxFrequency = Math.floor(maxFrequency / stepMaxFrequency); // 用于生成背景柱
+        const stepArray = d3.ticks(0, d3.max(data, d => d.frequency), 10); // 用于生成背景柱
         const colors = ['#ccc', '#ddd']; // 用于生成背景柱
 
         let tip = d3Tip() // 设置tip
@@ -50,7 +48,7 @@ class D3SimpleBarChart extends React.Component {
         g.append("g")// 设置背景柱
             .attr("class", "bar--bg-bar")
             .selectAll('rect')
-            .data(d3.range(scaleMaxFrequency))
+            .data(d3.range(stepArray.length - 1))
             .enter()
             .append('rect')
             .attr('stroke', 'none')
@@ -58,8 +56,10 @@ class D3SimpleBarChart extends React.Component {
             .attr('fill', function (d, i) { return colors[i % 2]; })
             .attr('x', 1)
             .attr('width', width)
-            .attr('height', Math.round(height * stepMaxFrequency / (y.domain()[1] * 100)))
-            .attr('y', function (d, i) { return y((d + 1) * stepMaxFrequency / 100); });
+            .attr('height', function(d, i){
+                return y(stepArray[i]) - y(stepArray[i + 1]);
+            })
+            .attr('y', function (d, i) { return y(((i + 1) * stepArray[1]))});
 
         g.selectAll(".bar")// 画柱图
             .data(data)
