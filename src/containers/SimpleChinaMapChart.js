@@ -14,7 +14,7 @@ class SimpleChinaMapChart extends React.Component {
 
         (async () => {
             try {
-                const res = await fetch('http://oiu3g8jom.bkt.clouddn.com/json/china.geojson');
+                const res = await fetch('http://cdn.a4z.cn/json/china.geojson');
                 const data = await res.json();
                 this.setState({data, isFetching: false});
             } catch (err) {
