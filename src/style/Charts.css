@@ -1,45 +1,47 @@
 .d3-tip {
-    font-size: 12px;
-    line-height: 1;
-    font-weight: bold;
-    padding: 12px;
-    background: rgba(121, 85, 72, 0.8);
-    color: #fff;
-    border-radius: 2px;
-    line-height: 1.5;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(121, 85, 72, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  line-height: 1.5;
 }
+
 /* Creates a small triangle extender for the tooltip */
 
 .d3-tip:after {
-    box-sizing: border-box;
-    display: inline;
-    font-size: 10px;
-    width: 100%;
-    line-height: 1;
-    color: rgba(121, 85, 72, 0.8);
-    content: "\25BC";
-    position: absolute;
-    text-align: center;
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(121, 85, 72, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
 }
+
 /* Style northward tooltips differently */
 
 .d3-tip.n:after {
-    margin: -3px 0 0 0;
-    top: 100%;
-    left: 0;
+  margin: -3px 0 0 0;
+  top: 100%;
+  left: 0;
 }
 
-.bar-chart--simple .bar:hover{
-    fill:purple;
-    cursor: pointer;
+.bar-chart--simple .bar:hover {
+  fill: purple;
+  cursor: pointer;
 }
 
 .stacked-demo.d3-tip {
-    background: rgba(0, 0, 0, 1);
+  background: rgba(0, 0, 0, 1);
 }
 
 .stacked-demo.d3-tip:after {
-    color: rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 1);
 }
 
 .group-tick line {
@@ -50,8 +52,8 @@
   fill-opacity: 0.67;
 }
 
-.simple-chord.d3-tip:after{
-    display: none;
+.simple-chord.d3-tip:after {
+  display: none;
 }
 
 .simple-pack-chart-demo .node--hover circle {
@@ -62,34 +64,35 @@
 .simple-pack-chart-demo text {
   font: 10px sans-serif;
   text-anchor: middle;
-  fill:#333;
+  fill: #333;
 }
-.radar-chart-demo .radar-line:hover{
-  fill-opacity:0.5;
+
+.radar-chart-demo .radar-line:hover {
+  fill-opacity: 0.5;
   stroke-width: 3px;
 }
 
-.force-chart--simple .links line{
+.force-chart--simple .links line {
   stroke: #ddd;
 }
 
-.force-chart--simple .nodes text{
+.force-chart--simple .nodes text {
   font-size: 16px;
   font-weight: 700;
 }
 
-.force-chart--simple .nodes g{
+.force-chart--simple .nodes g {
   cursor: move;
 }
 
 .force-chart--simple .link-text text {
-  font-size: 14px ;
-  fill:#000;
-  fill-opacity: 0;  
+  font-size: 14px;
+  fill: #000;
+  fill-opacity: 0;
 }
 
 .tag-cloud-chart--simple .nodes text {
-   font-weight: 700; 
+  font-weight: 700;
 }
 
 .simple-voronoi-chart-demo .links {
