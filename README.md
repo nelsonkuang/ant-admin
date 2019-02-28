@@ -1,7 +1,7 @@
 # ant-admin
 基于 antd 的后台管理平台, 在react中玩转D3.js   
 
-[在线 Demo](http://www.iampua.com/pui/ant-admin.html)    
+[在线 Demo](http://www.iampua.com/pui/ant-admin.html#/vertical-bp-chart)    
 
 ## 如何使用?
 
